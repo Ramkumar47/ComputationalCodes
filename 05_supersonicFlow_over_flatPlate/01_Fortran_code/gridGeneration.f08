@@ -26,8 +26,8 @@ subroutine generateGrid()
     ! constructing grid
     do i = 1,Nx
         do j = 1,Ny
-            X(i,j) = float(i-1)*deltaX
-            Y(i,j) = float(j-1)*deltaY
+            X(j,i) = float(i-1)*deltaX
+            Y(j,i) = float(j-1)*deltaY
         end do
     end do
 

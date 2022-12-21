@@ -56,8 +56,8 @@ subroutine write_csv()
     ! looping through the nodes
     do i = 1,Nx
         do j = 1,Ny
-            write(unit = 1, fmt = 50) X(i,j),Y(i,j),0.0,u(i,j),v(i,j),p(i,j), &
-                                rho(i,j),T(i,j)
+            write(unit = 1, fmt = 50) X(j,i),Y(j,i),0.0,u(j,i),v(j,i),p(j,i), &
+                                rho(j,i),T(j,i)
         end do
     end do
 

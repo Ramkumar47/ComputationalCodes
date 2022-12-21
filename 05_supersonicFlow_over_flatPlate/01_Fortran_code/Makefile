@@ -7,6 +7,9 @@ modelVars.o: modelVars.f08 parameters.o
 boundaryConditions.o: boundaryConditions.f08 parameters.o modelVars.o
 	gfortran -c boundaryConditions.f08
 
+differentiation.o: differentiation.f08 parameters.o modelVars.o
+	gfortran -c differentiation.f08
+
 bcSubroutines.o: bcSubroutines.f08 parameters.o modelVars.o boundaryConditions.o
 	gfortran -c bcSubroutines.f08
 
@@ -19,7 +22,7 @@ writeData.o: writeData.f08 parameters.o modelVars.o
 initAndComp.o: initAndComp.f08 parameters.o modelVars.o gridGeneration.o
 	gfortran -c initAndComp.f08
 
-main.o: main.f08 parameters.o modelVars.o initAndComp.o writeData.o bcSubroutines.o
+main.o: main.f08 parameters.o modelVars.o initAndComp.o writeData.o bcSubroutines.o differentiation.o
 	gfortran -c main.f08
 
 run.exe: main.o parameters.mod

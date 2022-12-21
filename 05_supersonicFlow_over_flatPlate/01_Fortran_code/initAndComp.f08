@@ -33,17 +33,11 @@ subroutine initializer()
     ! calling subroutine to initialize k and mu
     call compute_k_mu()
 
-    ! calling subroutine to compute derivatives
-
-
-    ! calling subroutine to compute shear stresses and heat fluxes
-    call compute_tau_q()
+    ! calling subroutine to populate differentiation matrices
+    call populate_diffMatrices()
 
     ! calling subroutie to compute U's
     call compute_Us()
-
-    ! calling subroutine to compute E's and F's
-    call compute_E_F()
 
     print *,"initialization done"
 
