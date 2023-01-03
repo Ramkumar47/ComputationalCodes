@@ -35,6 +35,7 @@ subroutine initializer()
         e = Cv*T
     elseif (resume_simulation .eq. 1) then ! resume simulation
         call read_prevSolFile()
+        call generate_computationGrid()
     else
         print *,"invalid value in variable : resume_simulation"
         ERROR stop
