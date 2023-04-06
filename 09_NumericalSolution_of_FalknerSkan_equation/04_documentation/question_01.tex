@@ -1,0 +1,86 @@
+\section{Question - 1}
+Derive the Falkner-Skan equation from the boundary layer equations by assuming
+$u_e = Ax^m$ where $x$ is streamwise direction.
+
+\vspace{0.5cm}
+\textbf{SOLUTION}
+\vspace{0.5cm}
+
+\par The boundary layer governing equations derived from the Navier-Stokes
+equations that were used in this derivation are given in \Cref{bl_eqn1,bl_eqn2}.
+
+\begin{align}
+    \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} &= 0 \label{bl_eqn1} \\
+    u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} &= -\frac{1}{\rho}\frac{\partial p}{\partial x} + \nu \frac{\partial^2 u}{\partial y^2} \label{bl_eqn2}
+\end{align}
+
+\par The flow velocity is assumed to be governed by a power-law profile
+which is given in \Cref{power_law_eqn}.
+\begin{align}
+    u_e = A x^m \label{power_law_eqn}
+\end{align}
+
+where $A$ and $m$ are constants. For ease of derivation, the streamfunction $\Psi$
+is taken instead of individual velocity components, and its definition is given in
+\Cref{shi_definition}, along with a transformation variable $\eta$ so that the
+number of independent variables reduces to 1, it is given in \Cref{eta_definition}.
+\begin{align}
+    \Psi &= \int{}{} u_e F(\eta) dy \label{shi_definition} \\
+    \eta &= y \sqrt{\frac{u_e}{\nu x}} \label{eta_definition}
+\end{align}
+
+Substituting the $\eta$ definition and integrating results in the equation for
+streamfunction as given in \Cref{shi_equation}.
+\begin{align}
+    \Psi &= u_e(x) \zeta(x)  f(\eta) \label{shi_equation}
+\end{align}
+
+where,
+
+\begin{align}
+    \zeta(x) = \sqrt{\frac{\nu x}{u_e}} \label{zeta_definition}
+\end{align}
+
+\par Then the definition of velocity components $u$ and $v$ were written in
+terms of stream function along with transformation as given in \Cref{u_transformation,v_transformation}.
+\begin{align}
+    u &= \frac{\partial \Psi}{\partial y} = \frac{\partial \Psi}{\partial \eta} \frac{\partial \eta}{\partial y} + \frac{\partial \eta}{\partial x}\cancelto{0}{ \frac{\partial x}{\partial y}} = u_e f'(\eta) \label{u_transformation} \\
+    v &= - \frac{\partial \Psi}{\partial x} = -\left(\frac{\partial \Psi}{\partial \eta}\frac{\partial \eta}{\partial x} + \frac{\partial \Psi}{\partial x}\cancel{\frac{\partial x}{\partial x}}\right) \label{v_transformation}
+\end{align}
+
+\par Computing further derivatives of $\Psi$ that are required in the momentum
+equation as given in \Cref{dshi_dxdy,dshi_dx,d2shi_dy2,d3shi_dy3}.
+\begin{align}
+    \frac{\partial^2 \Psi}{\partial x \partial y} &= \frac{\partial }{\partial x} \left(\frac{\partial \Psi}{\partial y}\right) \nonumber \\
+    &= \frac{d u_e}{dx} f'(\eta) - \eta \frac{u_e}{\zeta} \frac{d \zeta}{dx} f^{\prime\prime}(\eta) \label{dshi_dxdy}
+\end{align}
+\begin{align}
+    \frac{\partial \Psi}{\partial x} &= \frac{\partial}{\partial x} \left(u_e \zeta f(\eta)\right) \nonumber \\
+    &= \zeta f(\eta) \frac{d u_e}{dx} + u_e \frac{d\zeta}{dx} \left(f(\eta) - \eta f^\prime(\eta)\right) \label{dshi_dx}
+\end{align}
+\begin{align}
+    \frac{\partial^2 \Psi}{\partial y^2} &= \frac{\partial}{\partial y} \left(\frac{\partial \Psi}{\partial y}\right) = u_e \frac{f^{\prime\prime}(\eta)}{\zeta} \label{d2shi_dy2}
+\end{align}
+\begin{align}
+    \frac{\partial^3 \Psi}{\partial y^3} &= \frac{\partial}{\partial y}\left(\frac{\partial^2 \Psi}{\partial y^2}\right) = \frac{u_e}{\zeta} f^{\prime\prime\prime}(\eta) \label{d3shi_dy3}
+\end{align}
+
+\par And from Bernoulli equation, the expression for \(\frac{dp}{dx}\) is obtained
+as \Cref{dpdx}.
+\begin{align}
+   p + \frac{1}{2}\rho u_e^2 = Constant \nonumber \\
+    \frac{dp}{dx} = -\rho u_e \frac{d u_e}{dx} \label{dpdx}
+\end{align}
+
+\par Now, substituting the \Cref{u_transformation,v_transformation,dshi_dxdy,dshi_dx,d2shi_dy2,d3shi_dy3,dpdx} into \Cref{bl_eqn2} gives \Cref{second_last_FS_equation}.
+\begin{align}
+    \frac{\partial \Psi}{\partial y} \frac{\partial^2 \Psi}{\partial x \partial y} - \frac{\partial \Psi }{\partial x}\frac{\partial^2 \Psi}{\partial y^2} = u_e \frac{d u_e}{dx} + \nu \frac{\partial^3 \Psi}{\partial y^3} \nonumber \\
+    \nu\frac{u_e}{\zeta^2} f^{\prime\prime\prime}(\eta) + \left[u_e \frac{d u_e}{dx} + \frac{u_e^2}{\zeta}\frac{d\zeta}{dx} \right] f(\eta) f^\prime(\eta) + \left( 1- \left(f^\prime(\eta)\right)^2\right) u_e \frac{d u_e}{dx} &= 0 \label{second_last_FS_equation}.
+\end{align}
+
+\par Further simplification of \Cref{second_last_FS_equation} by substituting \Cref{zeta_definition} gives the final Falkner-Skan equation as \Cref{FS_equation_final}.
+\begin{align}
+    \boxed{f^{\prime\prime\prime}(\eta) + \left(\frac{m+1}{2}\right)f(\eta) f^{\prime\prime}(\eta) + \left(1 - \left(f^{\prime}(\eta)\right)^2\right) m = 0} \label{FS_equation_final}
+\end{align}
+
+\pagebreak
