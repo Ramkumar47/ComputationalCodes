@@ -1,0 +1,93 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                |                                                  |
+| \      /  F ield         | OpenFOAM: The Open Source CFD Toolbox            |
+|  \    /   O peration     | Version:  v2206                                  |
+|   \  /    A nd           | Website:  www.openfoam.com                       |
+|    \/     M anipulation  |                                                  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// mergeType points;   // Wedge geometry - Merge points instead of topology
+
+scale   1;
+
+vertices
+(
+    name v1 (0 0 0)
+    name v2 (0 1 0)
+    name v3 (0 1 1)
+    name v4 (0 0 1)
+
+    name v5 (10 0 0)
+    name v6 (10 1 0)
+    name v7 (10 1 1)
+    name v8 (10 0 1)
+);
+
+blocks
+(
+    // Buffer or steam tube blocks
+    hex (v1 v2 v3 v4 v5 v6 v7 v8) (10 10 100) simpleGrading (1 1 1)
+);
+
+edges
+(
+);
+
+boundary
+(
+    inlet
+    {
+        type patch;
+        faces
+        (
+            (v1 v2 v3 v4)
+        );
+    }
+
+    outlet
+    {
+        type patch;
+        faces
+        (
+            (v5 v6 v7 v8)
+        );
+    }
+
+   Plane1
+    {
+        type symmetry;
+        faces
+        (
+            (v1 v4 v8 v5)
+        );
+    }
+
+   Plane2
+    {
+        type symmetry;
+        faces
+        (
+            (v1 v2 v6 v5)
+        );
+    }
+
+    wall
+    {
+        type wall;
+        faces
+        (
+            (v2 v3 v7 v6)
+            (v3 v4 v8 v7)
+        );
+    }
+);
+
+

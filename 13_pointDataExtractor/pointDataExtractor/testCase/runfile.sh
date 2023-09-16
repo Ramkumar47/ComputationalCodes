@@ -1,0 +1,3 @@
+foamListTimes -rm
+blockMesh
+simpleFoam
