@@ -1,0 +1,1 @@
+coefficient value, a = 0.49910807439310806
