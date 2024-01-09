@@ -2,11 +2,12 @@
 \begin{frame}
 	\frametitle{Problem definition and analytical solution}
 	\begin{itemize}
-		\item 1D HC with T = 0 at boundaries and heat source, Q = 2.0
+		\item 1D HC with T = 0 at boundaries and heat source (constant and variable)
 			\vspace{1cm}
 		\item Analytical solution obtained using the method of manufactured solutions
 			\begin{align*}
-				T(x) = x - x^2
+				T(x) &= x - x^2 && (Q = 2) \\
+				T(x) &= x^2 - x^3 && (Q = 2 - 6x)
 			\end{align*}
 
 		\item Governining equation
@@ -47,34 +48,50 @@
 %------------------------------------------------------------------------------
 
 \begin{frame}
-	\frametitle{Results - with 5 elements}
+	\frametitle{Results - with 5 elements - constant Q}
 	Computed result
 	\begin{figure}
-		\includegraphics[scale=0.5]{supportingFiles/output_5.png}
+		\includegraphics[scale=0.5]{supportingFiles/results_constantQ/output_5.png}
 	\end{figure}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Results - with 5 elements}
+	\frametitle{Results - with 5 elements - constant Q}
 	Computed error
 	\begin{figure}
-		\includegraphics[scale=0.5]{supportingFiles/error_5.png}
+		\includegraphics[scale=0.5]{supportingFiles/results_constantQ/error_5.png}
 	\end{figure}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Results - with 10 elements}
+	\frametitle{Results - with 10 elements - constant Q}
 	Computed result
 	\begin{figure}
-		\includegraphics[scale=0.5]{supportingFiles/output_10.png}
+		\includegraphics[scale=0.5]{supportingFiles/results_constantQ/output_10.png}
 	\end{figure}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Results - with 10 elements}
+	\frametitle{Results - with 10 elements - constant Q}
 	Computed error
 	\begin{figure}
-		\includegraphics[scale=0.5]{supportingFiles/error_10.png}
+		\includegraphics[scale=0.5]{supportingFiles/results_constantQ/error_10.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Results - with 20 elements - variable Q}
+	Computed result
+	\begin{figure}
+		\includegraphics[scale=0.5]{supportingFiles/results_variableQ/output_10.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Results - with 20 elements - variable Q}
+	Computed error
+	\begin{figure}
+		\includegraphics[scale=0.5]{supportingFiles/results_variableQ/error_10.png}
 	\end{figure}
 \end{frame}
 
