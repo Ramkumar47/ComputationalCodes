@@ -1,0 +1,99 @@
+
+\begin{frame}
+    \frametitle{PSO Algorithm introduction}
+    \begin{itemize}
+        \item A non-gradient, population-based algorithm for optimization
+        \item Inspired from the nature: flock of birds in search of food etc...
+        \item It uses a number of particles whose position and velocity will
+            depend on the personal and global optimum locations
+        \item Velocity of each particle is calculated/updated on each iteration
+            with below equation
+            \begin{align*}
+                \bar{v}^{(k+1)} = w \bar{v}^{(k)} + C_1 r_1^{(k)} \left(\bar{p}_{best} - \bar{x}^{(k)}\right) + C_2 r_2^{(k)} \left(\bar{g}_{best} - \bar{x}^{(k)}\right)
+            \end{align*}
+            \(w,C_1,C_2\) are constants, and \(r_1,r_2\) are random values between 0 to 1 for each iteration
+        \item The position of each particle is updated using below equation
+            \begin{align*}
+             \bar{x}^{(k+1)} = \bar{x}^{(k)} + \bar{v}^{(k+1)}
+            \end{align*}
+    \end{itemize}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Program key points}
+    \begin{itemize}
+        \item Code was developed using Python programming language
+        \item Each particle was treated as an object instance from the main
+            Particle class definition
+        \item Main script file and a separate inputFile.py were developed to
+            induce undisturbance to the main file
+        \item Objective function and its sampling ranges, along with other inputs
+            like number of particles, can be defined in the inputFile.py file
+        \item Program will output a final\_output.csv file that will contain
+            the final position and velocity information of all particles at
+            the end of iteration
+        \item As optional output features, the history of each particle and
+            the contour outputs can also be obtained from the program
+    \end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Test Optimization functions}
+    \tiny
+    The following test functions were used for demonstration
+    \begin{itemize}
+        \item Deformed egg carton function
+            \begin{align*}
+                f(x,y) = (x-3.14)^2 + (y-2.2)^2 +\sin(3 x+1.41) + \sin(4 y - 1.73) \\
+                0 \le x,y \le 5
+            \end{align*}
+        \item Beale function
+            \begin{align*}
+                f(x,y) = (1.5-x+xy)^2+(2.25-x+x y^2)^2 + (2.625 -x+xy^3)^2 \\
+                -4.5 \le x,y \le 4.5
+            \end{align*}
+        \item Himmelblau function
+            \begin{align*}
+                f(x,y) = (x^2+y-11)^2+(x+y^2-7)^2 \\
+                -5 \le x,y \le 5
+            \end{align*}
+        \item Three hump camel function
+            \begin{align*}
+                f(x,y) = 2 x^2 -1.05x^4+\frac{x^6}{6}+x y +y^2 \\
+                -5 \le x,y \le 5
+            \end{align*}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Test Optimization functions Contd. }
+    \tiny
+    \begin{itemize}
+        \item Egg holder function
+            \begin{align*}
+                f(x,y) = -(y+47)\sin\sqrt{|\frac{x}{2} + (y+47)|} - x\sin\sqrt{|x-(y+47)|} \\
+                -512 \le x,y \le 512
+            \end{align*}
+        \item McCormick function
+            \begin{align*}
+                f(x,y) = \sin(x+y) + (x-y)^2 -1.5 x + 2.5 y + 1 \\
+                -1.5 \le x \le 4, -3 \le y \le 4
+            \end{align*}
+    \end{itemize}
+\end{frame}
+%------------------------------------------------------------------------------
+\begin{frame}
+    \frametitle{Output from program}
+    The following items were output from program for each test function and
+    are present in its own directories
+            \vspace{1cm}
+    \begin{itemize}
+        \item final particle data such as velocity and position \textit{final\_data.csv}
+            \vspace{1cm}
+        \item Animated video output \textit{output.mp4}
+    \end{itemize}
+\end{frame}
