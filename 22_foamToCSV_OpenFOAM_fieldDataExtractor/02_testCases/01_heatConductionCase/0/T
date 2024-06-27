@@ -1,0 +1,76 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 100;
+
+boundaryField
+{
+    west
+    {
+        type            fixedValue;
+        value           uniform 100.0;
+    }
+
+    east
+    {
+        type            fixedValue;
+        value           uniform 0.0;
+    }
+
+    "(north|south)"
+    {
+        type        fixedValue;
+        value       uniform 0;
+        // type            codedFixedValue;
+        // value           uniform 0;
+        //
+        // // name of the generated bc
+        // name            lineFixedValue;
+        //
+        // [>---------------------------------------------------------------------
+        //  * this bc is equivalent to the below ones defined in CFDStudio
+        //  *      BOUND T VALU Y- LINE X 100.0 -100.0
+        //  *      BOUND T VALU Y+ LINE X 100.0 -100.0
+        //  --------------------------------------------------------------------*/
+        //
+        // code
+        // #{
+        //     // getting boundary patch
+        //     const fvPatch& boundaryPatch = patch();
+        //     // getting boundary face centre vectors
+        //     const vectorField& Cf = boundaryPatch.Cf();
+        //
+        //     // getting the current field variable
+        //     scalarField& field = *this;
+        //
+        //     // looping through faces
+        //     forAll(Cf, faceid)
+        //     {
+        //         field[faceid] = (1.0 - Cf[faceid].x())*100.0;
+        //     }
+        // #};
+    }
+
+    "(top|bottom)"
+    {
+        type            empty;
+    }
+
+}
+
+// ************************************************************************* //
