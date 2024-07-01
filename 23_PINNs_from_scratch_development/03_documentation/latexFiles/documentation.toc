@@ -1,0 +1,13 @@
+\contentsline {section}{\numberline {1}Introduction to neural networks}{1}{}%
+\contentsline {section}{\numberline {2}Mathematical view on network training}{2}{}%
+\contentsline {section}{\numberline {3}Validating neural network code}{3}{}%
+\contentsline {subsection}{\numberline {3.1}Parabola problem}{3}{}%
+\contentsline {subsection}{\numberline {3.2}Flight velocity profile}{5}{}%
+\contentsline {section}{\numberline {4}Enhancing network with physics information}{6}{}%
+\contentsline {subsection}{\numberline {4.1}Computing derivatives output w.r.t input}{6}{}%
+\contentsline {subsection}{\numberline {4.2}Validating the gradient equation}{6}{}%
+\contentsline {section}{\numberline {5}Validating Physics-Informed Neural Network (PINN) code}{7}{}%
+\contentsline {subsection}{\numberline {5.1}Parabola profile with equation}{7}{}%
+\contentsline {subsection}{\numberline {5.2}Exponential velocity decay due to fluid viscosity}{7}{}%
+\contentsline {section}{\numberline {6}Python code structure}{10}{}%
+\contentsline {section}{\numberline {7}Conclusion and future works}{10}{}%

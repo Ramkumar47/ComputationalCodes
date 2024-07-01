@@ -1,0 +1,36 @@
+\section{Python code structure}
+\par{}
+In each of the source code that was provided with this documentation,
+there will be 3 python scripts, each handling specific part of the program.
+They are as listed below.
+\begin{itemize}
+    \item script\_main.py
+    \item inputData.py
+    \item customLayers.py
+\end{itemize}
+
+\par{}
+The \textit{script\_main.py} is the main script that constructs the network and
+has snippets related to physics information. \textit{inputData.py} script
+contains the snippets that determine the input parameters, such as number of
+layers and neurons on them, whether to save/load weights and learning rate
+adaptation code. Finally, \textit{customLayers.py} contains the class
+definition of a neural network layer that has everything related to layers such
+as activation function, its derivative and forward evaluation. Activation function
+is hard coded for now, and later may be made generalizable. \\
+
+\par{}
+The code was made as generalizable in terms of having number of neurons/layers
+for now, and the code is for fully connected dense network. Later, the future
+work may include custom codes for other network types when the need arises. \\
+
+
+\section{Conclusion and future works}
+\par{}
+I conclude the present work by stating that a high level of understanding and
+knowledge gained in the perspective of mathematics and programming of neural
+networks, that opened gateways for other methods of using neural networks,
+such as optimizing input values itself based on loss to find optimal
+values etc... The present work is limited to the generalization code of
+fully connected dense network. And, this code may be extended for other
+scientific computation uses such as Neural ODEs.

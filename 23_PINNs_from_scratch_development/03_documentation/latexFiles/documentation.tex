@@ -1,0 +1,55 @@
+%&tex
+\documentclass{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\usepackage{graphicx}
+
+\usepackage{amsmath}
+\usepackage{cleveref}
+\usepackage{subcaption}
+\usepackage{bm}
+
+\usepackage[backend=bibtex]{biblatex}
+\addbibresource{supportingFiles/00_bibEntries/bibEntries.bib}
+
+\title{Building Physics-Informed Neural Networks from scratch}
+\author{Ramkumar}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\begin{abstract}
+	A physics-informed neural network (PINN in short) is an artificial neural
+	network that learns the function from mathematical constraints that govern
+	the underlying physics to be modelled. In this work, a PINN was built from
+	scratch using Python programming language with fundamental libraries as
+	numpy, pandas and matplotlib.  Aim of the present work is to get
+	fundamental understanding on how a PINN works from the mathematical  and
+	programming points of view.  Here, the classical fully connectected neural
+	networks was constructed and tested by approximating a simple parabola plot
+	data.  Further, the built network was developed to be physics-informed and
+	validated by solving the ODE governing the exponential velocity decay of
+	fluid due to viscosity. The understanding gained will be extended in
+	further scientific computing using NNs.
+\end{abstract}
+
+\input{introduction.tex}
+
+\input{mathematical_modelling.tex}
+
+\input{validating_NN.tex}
+
+\input{physics_information_input.tex}
+
+\input{validating_PINN.tex}
+
+\input{code_structure_and_conclusion.tex}
+
+\printbibliography
+
+\end{document}
+

@@ -1,0 +1,43 @@
+\section{Introduction to neural networks}
+\par{}
+Machine learning is a branch of mathematics and computer science that develops
+mathematical models that learn and mimic the human behavior. Deep learning
+is a subset of machine learning that deals with artificial neural networks.\\
+\par{}
+A neuron is a mathematical function that takes in multiple weighted inputs
+and returns a single output. It is similar to a biological neuron in terms
+of connectivity and activation. Mathematically, it is represented as below.
+\begin{align*}
+	f_{neuron} = \sigma\left( \bm{w}^T.\bm{x} + b\right)
+\end{align*}
+\par{}
+Here, \(\bm{x}\) is the input vector to the neuron and \(\bm{w}\) is its
+corresponding weights vector. \(b\) is the bias of the neuron and \(\sigma\)
+is the activation function.\\
+
+\par{}
+A Neural network is a set of inter-connected mathematically modelled neurons
+that can work as a function approximator. It based on the
+universal approximation theorm \cite{cybenko1989approximation} which states
+as, any mathematically represented function \(f(x)\) can be approximated
+by a neural network \(G(x)\) of sufficiently wide and deep to the tolerance \(\epsilon\).
+Mathematically,
+\begin{align*}
+	| G(x) - f(x) | < \epsilon
+\end{align*}
+
+\par{}
+Today, neural networks are of many types, but the fundamental ones are of three:
+fully connected network, convolutional neural network, and reccurrent neural network,
+with each serving a specific purpose. Fully connected network, also called as
+dense network, is a set of layers of neurons in which each neuron on each layer
+will be connected to all other neurons on nearby layers. They are good in
+approximating the functions that invovle scalar IO variables. Convolutional
+neural networks are best for the field data IOs, and the reccurrent type networks
+are suitable for data that are of sequencial type. \\
+
+\par{}
+In the present work, the fully connected neural network is developed from
+scratch and later it was turned into physics informed network. The mathematical
+background, and the problems solved with the developed network were discussed
+in the upcoming sections. \\
