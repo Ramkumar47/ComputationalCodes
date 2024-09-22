@@ -1,0 +1,41 @@
+%&tex
+\documentclass{beamer}
+
+\usepackage{graphicx}
+
+\usepackage{cleveref}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{dcolumn}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+\usepackage{mhchem}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{xcolor,colortbl}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,backgrounds,calc}
+
+\usepackage[style=authortitle,backend=bibtex]{biblatex}
+\addbibresource{supportingFiles/00_bibEntries/bibEntries.bib}
+
+% \usetheme{default}
+\usetheme{RK}
+
+\title[Deep Operator Networks]{Introduction \\ to \\ Deep Operator Networks}
+
+\date{23-09-2024}
+
+\author[Ramkumar]{Ramkumar S \\[5mm] SC24D098 \\[10mm]{}}
+
+\institute{Department of Aerospace Engineering \\
+Indian Institute of Space science and Technology}
+
+\begin{document}
+
+\frame{\maketitle}
+
+\include{content.tex}
+
+\end{document}

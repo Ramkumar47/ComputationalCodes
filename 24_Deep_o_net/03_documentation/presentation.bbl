@@ -1,0 +1,101 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nty/global//global/global}
+  \entry{goswami2023physics}{incollection}{}
+    \name{author}{4}{}{%
+      {{hash=GS}{%
+         family={Goswami},
+         familyi={G\bibinitperiod},
+         given={Somdatta},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=BA}{%
+         family={Bora},
+         familyi={B\bibinitperiod},
+         given={Aniruddha},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=YY}{%
+         family={Yu},
+         familyi={Y\bibinitperiod},
+         given={Yue},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=KGE}{%
+         family={Karniadakis},
+         familyi={K\bibinitperiod},
+         given={George\bibnamedelima Em},
+         giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{GS+1}
+    \strng{fullhash}{GSBAYYKGE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{booktitle}{Machine Learning in Modeling and Simulation: Methods and
+  Applications}
+    \field{pages}{219\bibrangedash 254}
+    \field{title}{Physics-informed deep neural operator networks}
+    \field{year}{2023}
+  \endentry
+
+  \entry{hornik1989multilayer}{article}{}
+    \name{author}{3}{}{%
+      {{hash=HK}{%
+         family={Hornik},
+         familyi={H\bibinitperiod},
+         given={Kurt},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Stinchcombe},
+         familyi={S\bibinitperiod},
+         given={Maxwell},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=WH}{%
+         family={White},
+         familyi={W\bibinitperiod},
+         given={Halbert},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{HKSMWH1}
+    \strng{fullhash}{HKSMWH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{number}{5}
+    \field{pages}{359\bibrangedash 366}
+    \field{title}{Multilayer feedforward networks are universal approximators}
+    \field{volume}{2}
+    \field{journaltitle}{Neural networks}
+    \field{year}{1989}
+  \endentry
+\enddatalist
+\endinput

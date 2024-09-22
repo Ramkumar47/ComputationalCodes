@@ -1,0 +1,71 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: presentation.aux
+The style file: biblatex.bst
+A level-1 auxiliary file: content.aux
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: presentation-blx.bib
+Database file #2: supportingFiles/00_bibEntries/bibEntries.bib
+I was expecting an "="---line 392 of file supportingFiles/00_bibEntries/bibEntries.bib
+ : //       
+ :          title={Physics-Informed Deep Neural Operator Networks},
+I'm skipping whatever remains of this entry
+Biblatex version: 3.18
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 3 entries,
+            6399 wiz_defined-function locations,
+            1218 strings with 9432 characters,
+and the built_in function-call counts, 21026 in all, are:
+= -- 1709
+> -- 330
+< -- 76
++ -- 672
+- -- 129
+* -- 1450
+:= -- 2683
+add.period$ -- 0
+call.type$ -- 3
+change.case$ -- 37
+chr.to.int$ -- 42
+cite$ -- 4
+duplicate$ -- 2128
+empty$ -- 1716
+format.name$ -- 169
+if$ -- 4178
+int.to.chr$ -- 0
+int.to.str$ -- 6
+missing$ -- 0
+newline$ -- 100
+num.names$ -- 104
+pop$ -- 813
+preamble$ -- 1
+purify$ -- 53
+quote$ -- 0
+skip$ -- 479
+stack$ -- 0
+substring$ -- 3157
+swap$ -- 358
+text.length$ -- 84
+text.prefix$ -- 2
+top$ -- 1
+type$ -- 90
+warning$ -- 0
+while$ -- 354
+width$ -- 0
+write$ -- 98
+(There was 1 error message)
