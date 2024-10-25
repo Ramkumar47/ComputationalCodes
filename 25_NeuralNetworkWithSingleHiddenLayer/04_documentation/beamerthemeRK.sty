@@ -1,0 +1,61 @@
+\mode<presentation>
+
+\usefonttheme{default}
+\usecolortheme{RK}
+\useinnertheme{default}
+\useoutertheme{default}
+
+% turning off navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% new command to get footlinetitle
+\newcommand{\footlinetitle}{\@dblarg\beamer@footlinetitle}
+\long\def\beamer@footlinetitle[#1]#2{%
+  \def\insertfootlinetitle{#1}%
+  }
+\footlinetitle{}
+
+% new command to get footlineauthor
+\newcommand{\footlineauthor}{\@dblarg\beamer@footlineauthor}
+\long\def\beamer@footlineauthor[#1]#2{%
+  \def\insertfootlineauthor{#1}%
+  }
+\footlineauthor{}
+
+% slide count in footer taken care for appendix
+\setbeamertemplate{navigation symbols}{
+}
+
+% footline template
+\setbeamertemplate{footline}
+{
+    \ifnum \insertframenumber=1
+    \else%
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+            \usebeamerfont{author in head/foot}\textbf{\insertshortauthor}
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+            \usebeamerfont{title in head/foot}\textbf{\insertshorttitle}
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+            \usebeamerfont{date}\insertshortdate{}
+        \end{beamercolorbox}
+        \hskip-3pt% % to hide unknown gap
+        \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+            \ifbeamer@inappendix%
+                \insertmainframenumber\,/\,\insertmainframenumber\hspace*{2ex}
+            \else%
+                \usebeamerfont{footline}%
+                \usebeamercolor[fg]{footline}%
+                \insertframenumber\,/\,\insertmainframenumber\hspace*{2ex}
+            \fi%
+        \end{beamercolorbox}
+        }%
+        \vskip0pt%
+    \fi%
+    }
+
+\mode
+<all>
