@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{bm}
+\usepackage{amsfonts}
+\begin{document}
+
+\begin{algorithm}
+    \renewcommand{\thealgorithm}{}
+    \caption{Extreme Learning Machines}\label{alg:cap}
+    \begin{algorithmic}
+        \State Load dataset $\{\bm{x}_i,\bm{y}_i\}, \ \bm{x} \in \mathbb{R}^n, \ \bm{y}\in\mathbb{R}^m \ i=1,2,\dots,N$
+        \State Choose $N_h$ \Comment{No. of neurons in hidden layer}
+        \State Define $h()$ \Comment{hidden layer activation function}
+        \State Initialize $\bm{W}^{(1)}\in\mathbb{R}^{N_h\times n},\bm{b}^{(1)}\in\mathbb{R}^{N_h\times 1}$ randomly \Comment{hidden weights and bias}
+        \State Compute $\bm{a}_i^{(1)} = h\left(\bm{W}^{(1)}\bm{x}_i + \bm{b}^{(1)}\right), \ i=1,2,\dots,N$
+        \State Frame coefficient matrix $\bm{H} = \{\bm{a}_i\}, \ i=1,2,\dots,N$ \Comment{$N_h\times N$ matrix}
+        \If{Include bias in output layer}
+            \State $\bm{H} := \left[ \bm{H}^T | \{1\}^{N_h\times 1}\right]^T$
+        \EndIf
+        \State Frame output matrix $\bm{Y} = \{bm{y}_i\}, i=1,2,\dots,N$ \Comment{$m\times N$ matrix}
+        \State Compute $\bm{W}^{(2)} =  \bm{Y}\bm{H}^{\dagger}$ \Comment{output weight matrix, $^\dagger$ pseudo-inverse}
+    \end{algorithmic}
+\end{algorithm}
+
+\end{document}

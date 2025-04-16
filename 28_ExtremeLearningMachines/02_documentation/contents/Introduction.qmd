@@ -1,0 +1,42 @@
+# Introduction
+Extreme Learning Machines is a fast-training algorithm for the *Single Layer
+Feedforward Networks* (SLFNs) introduced by @huang2006extreme. The highlights
+from their published work are listed below.
+
+1. SLFNs are generally trained using gradient-based iterative algorithms like
+   *Back Propagation* that are generally slow due to improper learning steps
+   and could easily converge to local minima.
+
+1. In Extreme Learning Machines (ELMs) algorithm, the weight matrix
+   $\textbf{W}^{(1)}$, and bias vector $\textbf{b}^{(1)}$ of the hidden layer
+   are randomly initialized and freezed. And, the output layer weight matrix
+   $\textbf{W}^{(2)}$ is determined using non-iterative methods like least
+   squares.
+
+1. @huang2006extreme  proved in their paper, that the values of hidden layer
+   parameters, $\textbf{W}^{(1)}, \textbf{b}^{(1)}$ can be randomly assigned
+   and freezed if the hidden layer activation function $h()$ is infinitely
+   differentiable.
+
+1. The output layer in their work has linear activation function.
+
+1. The number of hidden layer neurons $N_h$, can be either less than or equal
+   to the number of data points $N$ i.e. $N_h \le N$, so that the approximation
+   error norm can be less than or equal to a small positive value $\epsilon$.
+   If $N_h = N$, then the equation system is determined and exact solution is
+   possible. This sets the upper bound for number of neurons in hidden layer
+   $N_h$.
+
+1. The authors have proposed *minimum norm least squares* solution for the
+   SLFNs. And the *Singular Value Decomposition* (SVD) can be generaly used to
+   calculate the Moore-Penrose
+   inverse^[[ref](https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse){target="_blank"}]^
+   in the least squares.
+
+1. The learning time of ELM is mainly spent on calculating the Moore-Penrose
+   generalized inverse. Hence, it is faster than the other iterative based
+   algorithms.
+
+The ELM in this work is designed to test under many settings and with different
+data in order to better comprehend the idea.
+

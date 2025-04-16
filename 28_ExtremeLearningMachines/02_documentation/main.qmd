@@ -1,0 +1,25 @@
+---
+title: Extreme Learning Machines
+authors:
+  - name: Ramkumar
+    affiliation: Research Scholar, IIST
+format:
+  html:
+    toc: true
+    toc-depth: 1
+    toc-title: Contents
+    toc-location: left
+    html-math-method: katex
+    number-sections: true
+bibliography: references.bib
+---
+
+{{< include contents/Introduction.qmd >}}
+
+{{< include contents/Mathematics.qmd >}}
+
+{{< include contents/PythonImplementation.qmd >}}
+
+{{< include contents/ExperimentsWithELM.qmd >}}
+
+{{< include contents/Conclusion.qmd >}}

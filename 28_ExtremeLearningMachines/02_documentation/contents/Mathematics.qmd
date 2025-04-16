@@ -1,0 +1,97 @@
+# Mathematical background of ELMs
+
+The overall idea was understood from the @huang2006extreme, and the equations
+are reproduced with own variables for convenience below.
+
+Let,
+
+$n$   - input vector size
+
+$N_h$ - hidden neurons count
+
+$m$   - output vector size
+
+$N$   - Total number of data points
+
+$\textbf{x}_i$ - i^th^ input vector
+
+$\textbf{y}_i$ - i^th^ output vector
+
+Then, the layer 1 (hidden layer) equations of SLFNs are
+
+$$
+\begin{align*}
+\textbf{z}^{(1)}_i &= \textbf{W}^{(1)} \textbf{x}_i + \textbf{b}^{(1)}\\
+\textbf{a}^{(1)}_i &= h(\textbf{z}^{(1)}_i)
+\end{align*}
+$$
+
+Similarly, for layer 2 (output layer) the equations are
+
+$$
+\begin{align*}
+\textbf{y}_i &= \textbf{W}^{(2)} \textbf{a}_i^{(1)}
+\end{align*}
+$$
+
+Here, $\textbf{y}_i$ is of size $m\times 1$. Now, concatinating all the $\textbf{y}$
+data $i=1,2,\dots,N$ column-wise, will yield an $m\times N$ matrix $\textbf{Y}$ called as the
+output matrix, as given below.
+
+$$
+\textbf{Y}  = \{\textbf{y}_i\}, \ i=1,2,\dots,N
+$$
+
+Similarly, the hidden layer outputs $\textbf{a}^{(1)}_i$ for all data points
+are concatenated to form a $N_h \times N$ matrix $\textbf{H}$ called as the
+coefficient matrix (as here $\textbf{W}^{(2)}$ is unknown to be determined).
+
+$$
+\textbf{H}  = \{\textbf{a}^{(1)}_i\}, \ i=1,2,\dots,N
+$$
+
+As the values of $\textbf{W}^{(1)}$ and $\textbf{b}^{(1)}$ are randomly
+initialized as per ELM algorithm (hence known), the matrix $\textbf{H}$ can
+be computed. The "augmented" form of output layer equation is
+$$
+\textbf{Y} = \textbf{W}^{(2)} \textbf{H}
+$$
+
+Here, $\textbf{W}^{(2)}$ is the unknown weights of output layer to be determined.
+As $\textbf{H}$ is a non-square matrix in general ($N_h \le N$), the Moore-Penrose
+inverse of the matrix will be taken to solve for $\textbf{W}^{(2)}$ as follows.
+$$
+\textbf{Y} \textbf{H}^\dagger = \textbf{W}^{(2)}
+$$
+
+## Including bias in the output layer
+
+In the original work of  @huang2006extreme, they did not include bias term
+in the output layer. However, inclusion of bias term is straight-forward.
+For example, first equation in layer 1 can be writen as
+
+$$
+\begin{align*}
+\textbf{z}^{(1)}_i &= \textbf{W}^{(1)} \textbf{x}_i + \textbf{b}^{(1)}\\
+&= [\textbf{W}^{(1)}|\textbf{b}^{(1)}] [\textbf{x}_i^T | 1]^T \\
+&= \bar{\textbf{W}}^{(1)} [\textbf{x}_i^T | 1]^T
+\end{align*}
+$$
+
+In similar way, the bias term can be included in output layer as follows.
+$$
+\begin{align*}
+\textbf{Y} &= \textbf{W}^{(2)} \textbf{H} \\
+           &= \bar{\textbf{W}}^{(2)} [\textbf{H}^T|1]^T
+\end{align*}
+$$
+
+However, inclusion of bias in output layer is given as optional in the
+developed *Python* program.
+
+## ELM algorithm
+
+As a summary of above steps, the algorithm of Extreme Learning Machines
+with option to include bias in the output layer is given below.
+
+![](supportingFiles/Algorithm/EMAalgorithm.png){fig-align="center"}

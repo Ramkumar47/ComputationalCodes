@@ -1,0 +1,19 @@
+# Conclusion
+
+In this work, a study on ELMs was made and a set of numerical experiments
+were performed. Following are the concluding points.
+
+1. ELMs are fast and work quite well with 1D functions
+
+1. Accuracy of the model depends on number of data points and number of hidden
+   neurons, probably on the random initialization of hidden weights and biases
+   as well.
+
+1. Number of hidden neurons should be less than or equal to number of data
+   points. Otherwise also, the algorithm will work, but yield bad results. For
+   good approximation, $N_h \le N$. This can be observed in all 4 numerical
+   experiments performed, specially experiments with varying hidden neuron
+   counts.
+
+Further experiments can be performed with ELMs using the *ExtremeLearningMachine*
+class developed in Python.

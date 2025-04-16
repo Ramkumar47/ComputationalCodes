@@ -1,0 +1,347 @@
+# Experiments with ELM
+
+Numerical experiments were performed to get the idea on capabilities of ELMs.
+Following two functions were taken for the experiments.
+
+- Sine function : $y = sin(x), \ x \in [0,2\pi]$
+
+- Plateu function: $y = (6x-2)^2 \sin(12 x-4), \ x \in [0,1]$
+
+Following experiment(s) were performed with each function.
+
+1. Accuracy variation with number of data points
+
+1. Accuracy variation with number of hidden neurons
+
+
+## Sine function
+
+The equation of function is given below
+
+$$
+y = \sin(x), \ x \in [0,2\pi]
+$$
+
+```{python}
+#| echo: false
+#| output: true
+x_p = np.linspace(0,np.pi*2,101)
+y_p = np.sin(x_p)
+plt.figure()
+plt.plot(x_p,y_p,'-b')
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid()
+plt.show()
+```
+
+### Exp 1: Accuracy variation with number of data points{.unnumbered}
+
+In this experiment, the number of training data points will be varied while
+keeping the testing data points to be $N_t = 501$. The training data points
+were uniformly distributed. Following code performs the experiment and output
+the $L_2$ error vs traing data points as a table and a plot.
+
+:::{.callout-note}
+Here, the number of neurons in hidden layer is kept constant, $N_h=10$
+:::
+
+```{python}
+#| echo: true
+#| output: true
+from IPython.display import HTML
+
+# fixing test points
+x_test = np.linspace(0,2*np.pi,501)[:,None]
+y_test = np.sin(x_test)
+
+# fixing number of datapoints
+N = [5,10,20,40,80,160,320,640]
+
+# performing experiment on loop
+L2_error = []
+for n in N:
+    # generating data
+    x = np.linspace(0,2*np.pi,n)[:,None]
+    y = np.sin(x)
+
+    # defining ELM model
+    elm1 = ELM(x,y,N_h=10,outputBias=False,name="sine_model")
+
+    # setting random seed
+    elm1.randomSeed = 1
+
+    # fitting the model
+    elm1.fit()
+
+    # predicting the output with more data points than training
+    y_pred = elm1.predict(x_test)
+
+    # computing error
+    l2 = np.sqrt(np.mean(np.square(y_pred-y_test)))
+    L2_error.append(l2)
+
+# preparing dataframe
+fid = pd.DataFrame(np.transpose([N,L2_error]),
+                   columns=["No. of datapoints","L2 error"])
+from itables import show
+show(fid, columnDefs=[{"className": "dt-center", "targets": "_all"}])
+
+# plotting graph
+plt.figure()
+plt.plot(N,L2_error,'-ob')
+plt.grid()
+plt.xlabel("No. of data points")
+plt.ylabel(r"$L_2$ error")
+plt.yscale("log")
+plt.xscale("log")
+plt.title("Error plot : training data points experiment")
+plt.show()
+```
+
+In the above plot, the $L_2$ error almost settles in the order of $10^{-3}$
+from 40 data points onwards. This limiation could be due to the number of
+hidden neurons. Hence, the next experiment will be performed with varying
+hidden neuron counts.
+
+### Exp 2: Accuracy variation with number of hidden neurons{.unnumbered}
+
+In this experiment, the number of training data points is fixed to be 100.
+Keeping the testing data points to be $N_t = 501$, the number of hidden neurons
+will be varied and $L_2$ error will be computed for each case as like previous
+experiment The training data points were uniformly distributed. Following code
+performs the experiment and output the $L_2$ error vs traing data points as a
+table and a plot.
+
+:::{.callout-note}
+Here, the number of training data points is $100$
+:::
+
+```{python}
+#| echo: true
+#| output: true
+from IPython.display import HTML
+
+# fixing test points
+x_test = np.linspace(0,2*np.pi,501)[:,None]
+y_test = np.sin(x_test)
+
+# fixing number of hidden neurons
+Nh = [2,4,8,16,32,64,128,256,512]
+
+# performing experiment on loop
+L2_error = []
+for nh in Nh:
+    # generating data
+    x = np.linspace(0,2*np.pi,100)[:,None]
+    y = np.sin(x)
+
+    # defining ELM model
+    elm1 = ELM(x,y,
+              N_h=nh, # fixing hidden neurons count
+              outputBias=False,name="sine_model")
+
+    # setting random seed
+    elm1.randomSeed = 1
+
+    # fitting the model
+    elm1.fit()
+
+    # predicting the output with more data points than training
+    y_pred = elm1.predict(x_test)
+
+    # computing error
+    l2 = np.sqrt(np.mean(np.square(y_pred-y_test)))
+    L2_error.append(l2)
+
+# preparing dataframe
+fid = pd.DataFrame(np.transpose([Nh,L2_error]),
+                   columns=["No. of hidden neurons","L2 error"])
+from itables import show
+show(fid)
+
+# plotting graph
+plt.figure()
+plt.plot(Nh,L2_error,'-ob')
+plt.grid()
+plt.xlabel("No. of hidden neurons")
+plt.ylabel(r"$L_2$ error")
+plt.yscale("log")
+plt.xscale("log")
+plt.title("Error plot : hidden neurons experiment")
+plt.show()
+```
+
+In the above plot, the minimum of $L_2$ error ($\approx 10^{-6}$) was found
+with the case having 16 hidden neurons. After that, the error increases with
+increasing neurons. This is because of the problem turning into
+under-determined from over-determined when $N_h > N$, but the increase is not
+significantly large. Hence, the effect of hidden neurons also plays role in
+getting good fit.
+
+<!---------------------------------------------------------------------------->
+
+## Plateau function
+
+The equation of function is given below
+
+$$
+y = (6x-2)^2 \sin(12x -4), x \in [0,1]
+$$
+
+```{python}
+#| echo: false
+#| output: true
+x_p = np.linspace(0,1,101)
+y_p = (6*x_p-2)**2*np.sin(12*x_p-4)
+plt.figure()
+plt.plot(x_p,y_p,'-b')
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid()
+plt.show()
+```
+
+Same set of experiments were performed for this function as well. It is just
+a repetition with a different, complicated function.
+
+### Exp 1: Accuracy variation with number of data points{.unnumbered}
+
+In this experiment, the number of training data points will be varied while
+keeping the testing data points to be $N_t = 501$. The training data points
+were uniformly distributed. Following code performs the experiment and output
+the $L_2$ error vs traing data points as a table and a plot.
+
+:::{.callout-note}
+Here, the number of neurons in hidden layer is kept constant, $N_h=10$
+:::
+
+```{python}
+#| echo: true
+#| output: true
+from IPython.display import HTML
+
+# fixing test points
+x_test = np.linspace(0,1,501)[:,None]
+y_test = (6*x_test-2)**2*np.sin(12*x_test-4)
+
+# fixing number of datapoints
+N = [5,10,20,40,80,160,320,640]
+
+# performing experiment on loop
+L2_error = []
+for n in N:
+    # generating data
+    x = np.linspace(0,1,n)[:,None]
+    y = (6*x-2)**2*np.sin(12*x-4)
+
+    # defining ELM model
+    elm1 = ELM(x,y,N_h=10,outputBias=False,name="sine_model")
+
+    # setting random seed
+    elm1.randomSeed = 1
+
+    # fitting the model
+    elm1.fit()
+
+    # predicting the output with more data points than training
+    y_pred = elm1.predict(x_test)
+
+    # computing error
+    l2 = np.sqrt(np.mean(np.square(y_pred-y_test)))
+    L2_error.append(l2)
+
+# preparing dataframe
+fid = pd.DataFrame(np.transpose([N,L2_error]),
+                   columns=["No. of datapoints","L2 error"])
+from itables import show
+show(fid, columnDefs=[{"className": "dt-center", "targets": "_all"}])
+
+# plotting graph
+plt.figure()
+plt.plot(N,L2_error,'-ob')
+plt.grid()
+plt.xlabel("No. of data points")
+plt.ylabel(r"$L_2$ error")
+plt.yscale("log")
+plt.xscale("log")
+plt.title("Error plot : training data points experiment")
+plt.show()
+```
+
+In the above plot, the $L_2$ error almost settles in the order of $10^{-1}$
+from 40 data points onwards. The next experiment will be performed with varying
+hidden neuron counts.
+
+### Exp 2: Accuracy variation with number of hidden neurons{.unnumbered}
+
+In this experiment, the number of training data points is fixed to be 100.
+Keeping the testing data points to be $N_t = 501$, the number of hidden neurons
+will be varied and $L_2$ error will be computed for each case as like previous
+experiment The training data points were uniformly distributed. Following code
+performs the experiment and output the $L_2$ error vs traing data points as a
+table and a plot.
+
+:::{.callout-note}
+Here, the number of training data points is $100$
+:::
+
+```{python}
+#| echo: true
+#| output: true
+from IPython.display import HTML
+
+# fixing test points
+x_test = np.linspace(0,1,501)[:,None]
+y_test = (6*x_test-2)**2*np.sin(12*x_test-4)
+
+# fixing number of hidden neurons
+Nh = [2,4,8,16,32,64,128,256,512,1024]
+
+# performing experiment on loop
+L2_error = []
+for nh in Nh:
+    # generating data
+    x = np.linspace(0,1,100)[:,None]
+    y = (6*x-2)**2*np.sin(12*x-4)
+
+    # defining ELM model
+    elm1 = ELM(x,y,
+              N_h=nh, # fixing hidden neurons count
+              outputBias=False,name="sine_model")
+
+    # setting random seed
+    elm1.randomSeed = 1
+
+    # fitting the model
+    elm1.fit()
+
+    # predicting the output with more data points than training
+    y_pred = elm1.predict(x_test)
+
+    # computing error
+    l2 = np.sqrt(np.mean(np.square(y_pred-y_test)))
+    L2_error.append(l2)
+
+# preparing dataframe
+fid = pd.DataFrame(np.transpose([Nh,L2_error]),
+                   columns=["No. of hidden neurons","L2 error"])
+from itables import show
+show(fid)
+
+# plotting graph
+plt.figure()
+plt.plot(Nh,L2_error,'-ob')
+plt.grid()
+plt.xlabel("No. of hidden neurons")
+plt.ylabel(r"$L_2$ error")
+plt.yscale("log")
+plt.xscale("log")
+plt.title("Error plot : hidden neurons experiment")
+plt.show()
+```
+
+For this function, the error reduces with number of hidden neurons.
+But, increase in loss is observed after $N_h > N$. This is due to the
+problem turning into under-constrained from over-constrained, as the
+values of hidden neurons to be estimated is more than the data available.

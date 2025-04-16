@@ -1,0 +1,165 @@
+# Python implementation of ELMs
+
+The above algorithm was implemented for the development of Extreme Learning
+Machines (ELMs) using *Python* programming language.
+
+For the convenience of trials, a custom *Python Class* named
+*ExtremeLearningMachines* was developed that embeds the algorithm and supported
+functions. The class definition is given below.
+
+The hidden activation function is chosen to be *hyperbolic tan* for now, and
+can be modified in the class definition as per need.
+
+```{python}
+#| echo: true
+#| output: false
+# importing needed modules
+import numpy as np
+import pandas as pd
+
+#==============================================================================
+
+class ExtremeLearningMachines:
+    def __init__(self,
+                 inputData,             # input data 2D array
+                 outputData,            # output data 2D array
+                 N_h,                   # number of hidden neurons
+                 outputBias = False,    # include bias in output
+                 name="elm"):           # model name
+        self.modelName  = name
+        self.Nh         = N_h
+        self.randomSeed = None          # seed value for pseudo-randomness
+        self.inputData  = inputData
+        self.outputData = outputData
+        self.outputBias = outputBias
+        self.n          = inputData.shape[1]
+        self.m          = outputData.shape[1]
+        self.N          = outputData.shape[0]  # no. of data points
+        self.trainState = False         # training state of the model
+
+        # initializing weight matrices
+        self.hiddenWeights = np.zeros([self.Nh,self.n])
+        self.hiddenBias    = np.zeros([self.Nh,1])
+        self.outputWeights = np.zeros([self.m,self.Nh])
+
+    # hidden activation function
+    def h(self,x):
+        return np.tanh(x)
+
+    # summary function
+    def summary(self):
+        print("\n===Model Summary===\n")
+
+        print("Model name           : ", self.modelName)
+        print("No of hidden neurons : ", self.Nh)
+        print("input size           : ", self.n)
+        print("output size          : ", self.m)
+        print("Train state          : ", self.trainState)
+        print("Included output bias : ", self.trainState)
+        print("hidden weights       : \n", self.hiddenWeights)
+        print("hidden bias          : \n", self.hiddenBias)
+        print("output weights       : \n", self.outputWeights)
+
+    # weights initialization function
+    def initializeWeights(self):
+        np.random.seed(self.randomSeed)  # setting seed value
+        self.hiddenWeights = np.random.rand(self.Nh,self.n)
+        self.hiddenBias    = np.random.rand(self.Nh,1)
+        self.outputWeights = np.random.rand(self.m,self.Nh)
+
+    # training function
+    def fit(self):
+        # initializing weights
+        self.initializeWeights()
+
+        # computing coefficient matrix
+        H = self.h(self.hiddenWeights@self.inputData[0][:,None]+
+                   self.hiddenBias)
+        for i in range(1,self.N):
+            tmp = self.h(self.hiddenWeights@self.inputData[i][:,None]+
+                   self.hiddenBias)
+            H = np.c_[H,tmp]
+
+        # if to include bias column in weights
+        if self.outputBias:
+            H = np.transpose(np.c_[H.T,np.ones([self.N,1])])
+        self.CoefficientMatrix = H
+
+        # computing output matrix
+        Y = self.outputData.T
+
+        # computing output layer weights
+        self.outputWeights = Y@np.linalg.pinv(H)
+
+    # predict function
+    def predict(self,x_pred):  # x_pred has to be a row vector
+        y_pred = []
+        if self.outputBias:
+            for i in range(x_pred.shape[0]):
+                z = self.hiddenWeights@x_pred[i][:,None]+self.hiddenBias
+                a = self.h(z)
+                a = np.r_[a,np.ones([1,1])]  # appending 1 for bias term
+                y_hat = self.outputWeights@a
+                y_pred.append(y_hat.flatten())
+        else:
+            for i in range(x_pred.shape[0]):
+                z = self.hiddenWeights@x_pred[i][:,None]+self.hiddenBias
+                a = self.h(z)
+                y_hat = self.outputWeights@a
+                y_pred.append(y_hat.flatten())
+
+        return np.array(y_pred)
+
+#==============================================================================
+```
+
+As a sample application, the following function is attempted to be approximated
+using the above *ExtremeLearningMachines*.
+$$
+y = \sin(x), \ x \in [0,2\pi]
+$$
+
+The python code that does this implementation is as follows.
+```{python}
+#| echo: true
+#| output: true
+import matplotlib.pyplot as plt
+
+ELM = ExtremeLearningMachines
+
+x = np.linspace(0,2*np.pi,21)[:,None]
+y = np.sin(x)
+
+# defining ELM model
+elm1 = ELM(x,        # input data
+           y,        # output data
+           N_h=10,   # hidden neurons count
+           outputBias=False,
+           name="sine_model")
+
+
+# setting random seed
+elm1.randomSeed = 1
+
+# fitting the model
+elm1.fit()
+
+# printing model summary
+elm1.summary()
+
+# predicting the output with more data points than training
+x_test = np.linspace(0,2*np.pi,501)[:,None]
+y_pred = elm1.predict(x_test)
+
+# plotting the output
+plt.rcParams.update({"font.size":11})
+plt.figure()
+plt.plot(x_test,y_pred,'-b',label="estimation")
+plt.plot(x,y,'or',markerfacecolor="none",label="exact")
+plt.grid()
+plt.xlabel("x")
+plt.ylabel("y")
+plt.title("sine")
+plt.legend(loc=(1.01,0.75))
+plt.show()
+```
