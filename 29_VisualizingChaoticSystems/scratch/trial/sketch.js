@@ -1,8 +1,5 @@
 
-let cam; // camera variable
-let camResetButton;
-
-let dt = 1e-3; // simulation timestep
+let dt = 5e-2; // simulation timestep
 let Tstop = 100.0; // simulation end time
 
 let x = [-1]; // initial conditions
@@ -18,24 +15,29 @@ let simTime=0;
 let x1 = x[0];
 let y1 = y[0];
 let z1 = z[0];
-let x2 = x1;
-let y2 = y1;
-let z2 = z1;
+let xMinVal;
+let xMaxVal;
+let yMinVal;
+let yMaxVal;
+let zMinVal;
+let zMaxVal;
+let cam; // camera variable
+let camResetButton;
+let simulationResetButton;
+let startSimulation=false;
 
 // equation function definition
 function f(xVal,yVal,zVal){
-    xDot = zVal;
+    xDot = zVal*1.0;
     yDot = xVal*yVal+xVal*zVal;
-    zDot = -0.1*x**3;
+    zDot = -0.1*xVal**3+yVal**3;
     vec = createVector(xDot,yDot,zDot);
     return vec;
 }
 
 // setup function
 function setup() {
-    // createCanvas(800, 500, WEBGL);
     createCanvas(800, 500, WEBGL);
-    debugMode(GRID);
 
     // camera definition
     cam = createCamera();
@@ -45,10 +47,37 @@ function setup() {
     // camera reset button
     camResetButton = createButton('reset view');
     camResetButton.mousePressed(resetView);
-    camResetButton.position(0,100);
+    camResetButton.position(0,0);
+
+    // simulation time entry
+    simTimePrompt = createElement('h5','sim. end time (s)');
+    simTimePrompt.position(90,-20);
+    simTimeInput = createInput(100);
+    simTimeInput.size(30);
+    simTimeInput.position(205,0);
+
+    // start stop button
+    startStopButton = createButton('start/stop');
+    startStopButton.mousePressed(startStopSimulation);
+    startStopButton.position(simTimeInput.x+simTimeInput.width,0);
+
+    // simulation reset button
+    simulationResetButton = createButton('reset simulation');
+    simulationResetButton.mousePressed(resetSimulation);
+    simulationResetButton.position(startStopButton.x+startStopButton.width+20,0);
 
     describe('JCS-08-13-2022 System',LABEL);
     frDiv = createDiv('');
+
+    let scaleFactor = 0.25*height;
+
+    // setting min and max range values
+    xMinVal = -(-scaleFactor/2*xRange[1]-scaleFactor/2*xRange[0])/(xRange[0]-xRange[1]);
+    xMaxVal = (-scaleFactor/2-xMinVal)/xRange[0]+xMinVal;
+    yMinVal = -(-scaleFactor/2*yRange[1]-scaleFactor/2*yRange[0])/(yRange[0]-yRange[1]);
+    yMaxVal = (-scaleFactor/2-yMinVal)/yRange[0]+yMinVal;
+    zMinVal = -(-scaleFactor/2*zRange[1]-scaleFactor/2*zRange[0])/(zRange[0]-zRange[1]);
+    zMaxVal = (-scaleFactor/2-zMinVal)/zRange[0]+zMinVal;
 }
 function draw() {
 
@@ -56,30 +85,19 @@ function draw() {
 
     orbitControl(); // 3d navigation with mouse
 
-    // computing solution using RK4 integration
-    let k1 = f(x1,y1,z1);
-    let k2 = f(x1+k1.x/2*dt,y1+k1.y/2*dt,z1+k1.z/2*dt);
-    let k3 = f(x1+k2.x/2*dt,y1+k2.y/2*dt,z1+k2.z/2*dt);
-    let k4 = f(x1+k3.x*dt,y1+k3.y*dt,z1+k3.z*dt);
-    x2 = x1 + dt/6*(k1.x+2*k2.x+2*k3.x+k4.x);
-    y2 = y1 + dt/6*(k1.y+2*k2.y+2*k3.y+k4.y);
-    z2 = z1 + dt/6*(k1.z+2*k2.z+2*k3.z+k4.z);
-    x.push(x2);
-    y.push(y2);
-    z.push(z2);
-
-    // updating simulation time
-    simTime += dt;
+    if(simTime < Tstop && startSimulation){
+        integrator();
+        // updating simulation time
+        simTime += dt;
+    }
 
     // rotateY(millis()*0.001);
     drawCoordinateAxes();
-    frDiv.html("Time: " + nf(simTime, 2, 2)+' s'); // Update the div with framerate
+    drawGrid();
+    frDiv.html("Time: " + nf(simTime, 2, 2)+' / '+Tstop+' s'); // Update the div with framerate
 
     // drawing solution curve
     drawSolution();
-
-    if(simTime > Tstop)
-        noLoop();
 
 }
 
@@ -147,14 +165,81 @@ function resetView(){
 
 // draw the solution curve
 function drawSolution(){
-    for(let i=1; i<x.size-1; i+= 1){
+    let xStart,yStart,zStart;
+    let xEnd,yEnd,zEnd;
+    let xSize = x.length;
+    for(let i=1; i<xSize; i=i+1){
         stroke(0);
-        let xStart = x[i-1]*(xRange[1]-xRange[0])+xRange[0];
-        let yStart = y[i-1]*(yRange[1]-yRange[0])+yRange[0];
-        let zStart = z[i-1]*(zRange[1]-zRange[0])+zRange[0];
-        let xEnd   = x[i]*(xRange[1]-xRange[0])+xRange[0];
-        let yEnd   = y[i]*(yRange[1]-yRange[0])+yRange[0];
-        let zEnd   = z[i]*(zRange[1]-zRange[0])+zRange[0];
-        line(xStart,yStart,zStart,xEnd,yEnd,zEnd);
+        xStart = x[i-1]*(xMaxVal - xMinVal)+xMinVal;
+        yStart = y[i-1]*(yMaxVal - yMinVal)+yMinVal;
+        zStart = z[i-1]*(zMaxVal - zMinVal)+zMinVal;
+        xEnd   = x[i]*(xMaxVal - xMinVal)+xMinVal;
+        yEnd   = y[i]*(yMaxVal - yMinVal)+yMinVal;
+        zEnd   = z[i]*(zMaxVal - zMinVal)+zMinVal;
+        line(xStart,-yStart,zStart,xEnd,-yEnd,zEnd);
     }
+    push();
+    translate(xEnd,-yEnd,zEnd);
+    fill(210,15,57);
+    sphere(1);
+    pop();
+    // print(xEnd,yEnd,zEnd);
+}
+
+// RK4 integrator function
+function integrator(){
+    // computing solution using RK4 integration
+    let k1 = f(x1,y1,z1);
+    let k2 = f(x1+k1.x/2*dt,y1+k1.y/2*dt,z1+k1.z/2*dt);
+    let k3 = f(x1+k2.x/2*dt,y1+k2.y/2*dt,z1+k2.z/2*dt);
+    let k4 = f(x1+k3.x*dt,y1+k3.y*dt,z1+k3.z*dt);
+    x1 = x1 + dt/6*(k1.x+2*k2.x+2*k3.x+k4.x);
+    y1 = y1 + dt/6*(k1.y+2*k2.y+2*k3.y+k4.y);
+    z1 = z1 + dt/6*(k1.z+2*k2.z+2*k3.z+k4.z);
+    x.push(x1);
+    y.push(y1);
+    z.push(z1);
+
+}
+
+// grid draw function
+function drawGrid(){
+    stroke(188,192,204);
+    let xVal = xRange[0];
+    while(xVal <=xRange[1]){
+        xStart = xVal*(xMaxVal - xMinVal)+xMinVal;
+        zStart = zRange[0]*(zMaxVal - zMinVal)+zMinVal;
+        zEnd   = zRange[1]*(zMaxVal - zMinVal)+zMinVal;
+        line(xStart,0,zStart,xStart,0,zEnd);
+        xVal += 1;
+    }
+    let zVal = zRange[0];
+    while(zVal <=zRange[1]){
+        zStart = zVal*(zMaxVal - zMinVal)+zMinVal;
+        xStart = xRange[0]*(xMaxVal - xMinVal)+xMinVal;
+        xEnd   = xRange[1]*(xMaxVal - xMinVal)+xMinVal;
+        line(xStart,0,zStart,xEnd,0,zStart);
+        zVal += 1;
+    }
+}
+
+// simulation reset function
+function resetSimulation(){
+    x = [-1]; // initial conditions
+    y = [0];
+    z = [0];
+    x1 = x[0];
+    y1 = y[0];
+    z1 = z[0];
+    simTime=0;
+    startSimulation = false;
+}
+
+// start stop simulation
+function startStopSimulation(){
+    Tstop = simTimeInput.value();
+    if (startSimulation)
+        startSimulation = false;
+    else
+        startSimulation = true;
 }
