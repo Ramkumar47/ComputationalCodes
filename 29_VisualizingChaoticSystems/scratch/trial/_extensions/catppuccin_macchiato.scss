@@ -1,0 +1,49 @@
+/*-- scss:defaults --*/
+
+/* Catppuccin macchiato  */
+$Rosewater:  #f4dbd6;
+$Flamingo:   #f0c6c6;
+$Pink:       #f5bde6;
+$Mauvre:     #c6a0f6;
+$Red:        #ed8796;
+$Maroon:     #ee99a0;
+$Peach:      #f5a97f;
+$Yellow:     #eed49f;
+$Green:      #a6da95;
+$Teal:       #8bd5ca;
+$Sky:        #91d7e3;
+$Sapphire:   #7dc4e4;
+$Blue:       #8aadf4;
+$Lavender:   #b7bdf8;
+$Text:       #cad3f5;
+$Subtext_1:  #b8c0e0;
+$Subtext_0:  #a5adcb;
+$Overlay_2:  #939ab7;
+$Overlay_1:  #8087a2;
+$Overlay_0:  #6e738d;
+$Surface_2:  #5b6078;
+$Surface_1:  #494d64;
+$Surface_0:  #363a4f;
+$Base:       #24273a;
+$Mantle:     #1e2030;
+$Crust:      #181926;
+
+
+$body-bg:                        $Crust !default;
+$body-color:                     $Text !default;
+$link-color:                     $Blue !default;
+$input-bg:                       $Overlay_0 !default;
+$popover-bg:                     $Surface_0 !default;
+
+$code-annotation-higlight-color: $Maroon !default;
+$code-annotation-higlight-bg:    $Peach !default;
+
+$navbar-bg:                      $Sapphire !default;
+$navbar-fg:                      $Mantle !default;
+
+$sidebar-bg:                      $Surface_0 !default;
+$sidebar-fg:                      $Subtext_0 !default;
+
+$code-block-bg:                   $Base !default;
+$code-block-border-left:          $Lavender !default;
+
