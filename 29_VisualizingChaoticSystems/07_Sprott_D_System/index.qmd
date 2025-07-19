@@ -1,5 +1,5 @@
 ---
-title: "JCS-08-13-2022 System"
+title: "Sprott D System"
 ---
 
 ## Simulation
@@ -8,13 +8,13 @@ The governing equations of this chaotic system are
 
 $$
 \begin{eqnarray}
-\dot{x} &=& z \\
-\dot{y} &=& xy+xz \\
-\dot{z} &=& ax^3+y^3
+\dot{x} &=& -y \\
+\dot{y} &=& x+z \\
+\dot{z} &=& xz+ay^2
 \end{eqnarray}
 $$
 
-with $a=-0.1$ and initial condition $(-1,0,0)$.
+with $a=3$ and initial condition $(-1,-1,2)$.
 
 ```{=html}
 <iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>

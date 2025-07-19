@@ -1,0 +1,49 @@
+/*-- scss:defaults --*/
+
+/* Catppuccin latte  */
+$Rosewater:  #dc8a78;
+$Flamingo:   #dd7878;
+$Pink:       #ea76cb;
+$Mauvre:     #8839ef;
+$Red:        #d20f39;
+$Maroon:     #e64553;
+$Peach:      #fe640b;
+$Yellow:     #df8e1d;
+$Green:      #40a02b;
+$Teal:       #179299;
+$Sky:        #04a5e5;
+$Sapphire:   #209fb5;
+$Blue:       #1e66f5;
+$Lavender:   #7287fd;
+$Text:       #4c4f69;
+$Subtext_1:  #5c5f77;
+$Subtext_0:  #6c6f85;
+$Overlay_2:  #7c7f93;
+$Overlay_1:  #8c8fa1;
+$Overlay_0:  #9ca0b0;
+$Surface_2:  #acb0be;
+$Surface_1:  #bcc0cc;
+$Surface_0:  #ccd0da;
+$Base:       #eff1f5;
+$Mantle:     #e6e9ef;
+$Crust:      #dce0e8;
+
+
+$body-bg:                        $Crust !default;
+$body-color:                     $Text !default;
+$link-color:                     $Blue !default;
+$input-bg:                       $Overlay_0 !default;
+$popover-bg:                     $Surface_0 !default;
+
+$code-annotation-higlight-color: $Maroon !default;
+$code-annotation-higlight-bg:    $Peach !default;
+
+$navbar-bg:                      $Sapphire !default;
+$navbar-fg:                      $Mantle !default;
+
+$sidebar-bg:                      $Surface_0 !default;
+$sidebar-fg:                      $Subtext_0 !default;
+
+$code-block-bg:                   $Base !default;
+$code-block-border-left:          $Lavender !default;
+

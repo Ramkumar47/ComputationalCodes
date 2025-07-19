@@ -1,5 +1,5 @@
 ---
-title: "JCS-08-13-2022 System"
+title: "Rössler System"
 ---
 
 ## Simulation
@@ -8,13 +8,13 @@ The governing equations of this chaotic system are
 
 $$
 \begin{eqnarray}
-\dot{x} &=& z \\
-\dot{y} &=& xy+xz \\
-\dot{z} &=& ax^3+y^3
+\dot{x} &=& -y-z\\
+\dot{y} &=& x+ay\\
+\dot{z} &=& 1+xz-bz
 \end{eqnarray}
 $$
 
-with $a=-0.1$ and initial condition $(-1,0,0)$.
+with $a=0.5, b=3$ and initial condition $(3,-2,1)$.
 
 ```{=html}
 <iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>

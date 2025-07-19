@@ -1,5 +1,5 @@
 ---
-title: "JCS-08-13-2022 System"
+title: "Nosé-Hoover System"
 ---
 
 ## Simulation
@@ -8,13 +8,13 @@ The governing equations of this chaotic system are
 
 $$
 \begin{eqnarray}
-\dot{x} &=& z \\
-\dot{y} &=& xy+xz \\
-\dot{z} &=& ax^3+y^3
+\dot{x} &=& y \\
+\dot{y} &=& -x-zy\\
+\dot{z} &=& y^2-a
 \end{eqnarray}
 $$
 
-with $a=-0.1$ and initial condition $(-1,0,0)$.
+with $a=1$ and initial condition $(5,5,0)$.
 
 ```{=html}
 <iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
