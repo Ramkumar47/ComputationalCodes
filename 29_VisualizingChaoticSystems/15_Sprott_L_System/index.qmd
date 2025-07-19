@@ -1,0 +1,21 @@
+---
+title: "Sprott L System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& y+z\\
+\dot{y} &=& ax^2-y\\
+\dot{z} &=& 1-x
+\end{eqnarray}
+$$
+
+with $a=0.24$ and initial condition $(-6,4,-8)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

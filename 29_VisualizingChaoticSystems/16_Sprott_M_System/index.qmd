@@ -1,0 +1,21 @@
+---
+title: "Sprott M System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& az\\
+\dot{y} &=& x^2-y\\
+\dot{z} &=& 1+x-y
+\end{eqnarray}
+$$
+
+with $a=-8$ and initial condition $(-1,2,0)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

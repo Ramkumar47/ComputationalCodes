@@ -1,0 +1,21 @@
+---
+title: "Sprott I System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& -y\\
+\dot{y} &=& x+az\\
+\dot{z} &=& x+y^2-z
+\end{eqnarray}
+$$
+
+with $a=0.84$ and initial condition $(-8,2,4)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

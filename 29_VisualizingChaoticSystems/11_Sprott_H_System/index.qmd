@@ -1,0 +1,21 @@
+---
+title: "Sprott H System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& y+z^2\\
+\dot{y} &=& -x+ay\\
+\dot{z} &=& x-z
+\end{eqnarray}
+$$
+
+with $a=0.5$ and initial condition $(1,-2,1)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

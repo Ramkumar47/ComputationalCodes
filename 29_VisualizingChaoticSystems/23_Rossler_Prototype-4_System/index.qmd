@@ -1,0 +1,21 @@
+---
+title: "Rössler Prototype-4 System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& y+z\\
+\dot{y} &=& ax\\
+\dot{z} &=& y+y^2-z
+\end{eqnarray}
+$$
+
+with $a=-4$ and initial condition $(0,-1,0)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

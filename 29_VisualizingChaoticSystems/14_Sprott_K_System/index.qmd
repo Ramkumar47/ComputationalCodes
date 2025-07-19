@@ -1,0 +1,21 @@
+---
+title: "Sprott K System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& xy+z\\
+\dot{y} &=& x-y\\
+\dot{z} &=& -x+az
+\end{eqnarray}
+$$
+
+with $a=0.3$ and initial condition $(-1,-1,0)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

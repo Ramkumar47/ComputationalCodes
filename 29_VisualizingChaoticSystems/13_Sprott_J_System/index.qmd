@@ -1,0 +1,21 @@
+---
+title: "Sprott J System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& z\\
+\dot{y} &=& -y+z\\
+\dot{z} &=& -x+ay+y^2
+\end{eqnarray}
+$$
+
+with $a=0.48$ and initial condition $(4,1,0)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

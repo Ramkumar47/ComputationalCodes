@@ -1,0 +1,7 @@
+project:
+  title: "Sprott P System"
+format:
+  html:
+    theme: [cosmo,_extensions/catppuccin_latte.scss]
+
+

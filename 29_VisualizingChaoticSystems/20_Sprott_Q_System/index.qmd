@@ -1,0 +1,21 @@
+---
+title: "Sprott Q System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& -z\\
+\dot{y} &=& x+ay\\
+\dot{z} &=& x+y^2+bz
+\end{eqnarray}
+$$
+
+with $a=-0.5,b=0.28$ and initial condition $(0,1,0)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

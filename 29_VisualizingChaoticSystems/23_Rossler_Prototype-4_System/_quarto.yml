@@ -1,0 +1,7 @@
+project:
+  title: "Rössler Prototype-4 System"
+format:
+  html:
+    theme: [cosmo,_extensions/catppuccin_latte.scss]
+
+

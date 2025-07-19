@@ -1,0 +1,21 @@
+---
+title: "Sprott S System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& -x+ay\\
+\dot{y} &=& x+z^2\\
+\dot{z} &=& 1+x
+\end{eqnarray}
+$$
+
+with $a=-5$ and initial condition $(-1,0,-1)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

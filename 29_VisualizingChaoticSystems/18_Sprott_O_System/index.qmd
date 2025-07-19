@@ -1,0 +1,21 @@
+---
+title: "Sprott O System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& y\\
+\dot{y} &=& -x+z\\
+\dot{z} &=& x+xz+ay
+\end{eqnarray}
+$$
+
+with $a=0.3$ and initial condition $(-2,0,-1)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```
