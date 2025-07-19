@@ -1,9 +1,0 @@
-project:
-  title: "trial"
-format:
-  html:
-    theme:
-      light: [cosmo,_extensions/catppuccin_latte.scss]
-      dark: [cosmo,_extensions/catppuccin_mocha.scss]
-
-

@@ -1,0 +1,7 @@
+project:
+  title: "JC-08-13-2022 System"
+format:
+  html:
+    theme: [cosmo,_extensions/catppuccin_latte.scss]
+
+

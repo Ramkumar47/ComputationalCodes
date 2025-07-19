@@ -5,6 +5,8 @@ let Tstop = 100.0; // simulation end time
 let x = [-1]; // initial conditions
 let y = [0];
 let z = [0];
+let LL = [0]; // local lyapunov
+let r0 = 1.5e-8; // perturbation value
 
 let xRange = [-4,1]; // range of coordinates
 let yRange = [-3,3];
@@ -25,6 +27,7 @@ let cam; // camera variable
 let camResetButton;
 let simulationResetButton;
 let startSimulation=false;
+let hueCoeff = 2; // hue slope coeff. for lyapunov coloring
 
 // equation function definition
 function f(xVal,yVal,zVal){
@@ -38,6 +41,9 @@ function f(xVal,yVal,zVal){
 // setup function
 function setup() {
     createCanvas(800, 500, WEBGL);
+
+    // setting colormode
+    colorMode(HSL);
 
     // camera definition
     cam = createCamera();
@@ -79,9 +85,10 @@ function setup() {
     zMinVal = -(-scaleFactor/2*zRange[1]-scaleFactor/2*zRange[0])/(zRange[0]-zRange[1]);
     zMaxVal = (-scaleFactor/2-zMinVal)/zRange[0]+zMinVal;
 }
+// main draw function
 function draw() {
 
-    background(220,224,232);
+    background(220,21,89);
 
     orbitControl(); // 3d navigation with mouse
 
@@ -89,6 +96,7 @@ function draw() {
         integrator();
         // updating simulation time
         simTime += dt;
+        // print(max(LL),min(LL));
     }
 
     // rotateY(millis()*0.001);
@@ -101,24 +109,25 @@ function draw() {
 
 }
 
+// coordinates draw function
 function drawCoordinateAxes(){
     let axisScale=1;
     // center sphere
-    fill(76,79,105);
-    stroke(76,79,105);
+    fill(234,16,35);
+    stroke(234,16,35);
     sphere(axisScale);
 
     // x-axis
     push();
-    fill(210,15,57);
-    stroke(210,15,57);
+    fill(347,87,44);
+    stroke(347,87,44);
     translate(5*axisScale,0,0);
     rotateZ(PI/2);
     cylinder(0.5*axisScale,10*axisScale);
     pop();
     push();
-    fill(210,15,57);
-    stroke(210,15,57);
+    fill(347,87,44);
+    stroke(347,87,44);
     translate(10.5*axisScale,0,0);
     rotateZ(-PI/2);
     cone(axisScale,axisScale);
@@ -126,15 +135,15 @@ function drawCoordinateAxes(){
 
     // y-axis
     push();
-    fill(64,160,43);
-    stroke(64,160,43);
+    fill(109,58,40);
+    stroke(109,58,40);
     translate(0,-5*axisScale,0);
     // rotateZ(PI/2);
     cylinder(0.5*axisScale,10*axisScale);
     pop();
     push();
-    fill(64,160,43);
-    stroke(64,160,43);
+    fill(109,58,40);
+    stroke(109,58,40);
     translate(0,-10.5*axisScale,0);
     rotateZ(-PI);
     cone(axisScale,axisScale);
@@ -142,15 +151,15 @@ function drawCoordinateAxes(){
 
     // z-axis
     push();
-    fill(30,102,245);
-    stroke(30,102,245);
+    fill(220,91,54);
+    stroke(220,91,54);
     translate(0,0,5*axisScale);
     rotateX(PI/2);
     cylinder(0.5*axisScale,10*axisScale);
     pop();
     push();
-    fill(30,102,245);
-    stroke(30,102,245);
+    fill(220,91,54);
+    stroke(220,91,54);
     translate(0,0,10.5*axisScale);
     rotateX(PI/2);
     cone(axisScale,axisScale);
@@ -158,9 +167,16 @@ function drawCoordinateAxes(){
 
 }
 
+// reset view button function
 function resetView(){
     cam.setPosition(30,-80,150);
     cam.lookAt(0,0,0);
+}
+
+// hue function based on local lyapunov exponent
+function hueVal(Lval){
+    val = (1/(1+exp(-hueCoeff*Lval)))*(0-220)+220;
+    return val;
 }
 
 // draw the solution curve
@@ -169,7 +185,7 @@ function drawSolution(){
     let xEnd,yEnd,zEnd;
     let xSize = x.length;
     for(let i=1; i<xSize; i=i+1){
-        stroke(0);
+        stroke(hueVal(LL[i]),87,44);
         xStart = x[i-1]*(xMaxVal - xMinVal)+xMinVal;
         yStart = y[i-1]*(yMaxVal - yMinVal)+yMinVal;
         zStart = z[i-1]*(zMaxVal - zMinVal)+zMinVal;
@@ -180,10 +196,10 @@ function drawSolution(){
     }
     push();
     translate(xEnd,-yEnd,zEnd);
-    fill(210,15,57);
+    stroke(234,16,35);
+    fill(234,16,35);
     sphere(1);
     pop();
-    // print(xEnd,yEnd,zEnd);
 }
 
 // RK4 integrator function
@@ -193,18 +209,67 @@ function integrator(){
     let k2 = f(x1+k1.x/2*dt,y1+k1.y/2*dt,z1+k1.z/2*dt);
     let k3 = f(x1+k2.x/2*dt,y1+k2.y/2*dt,z1+k2.z/2*dt);
     let k4 = f(x1+k3.x*dt,y1+k3.y*dt,z1+k3.z*dt);
-    x1 = x1 + dt/6*(k1.x+2*k2.x+2*k3.x+k4.x);
-    y1 = y1 + dt/6*(k1.y+2*k2.y+2*k3.y+k4.y);
-    z1 = z1 + dt/6*(k1.z+2*k2.z+2*k3.z+k4.z);
-    x.push(x1);
-    y.push(y1);
-    z.push(z1);
+    let x2 = x1 + dt/6*(k1.x+2*k2.x+2*k3.x+k4.x);
+    let y2 = y1 + dt/6*(k1.y+2*k2.y+2*k3.y+k4.y);
+    let z2 = z1 + dt/6*(k1.z+2*k2.z+2*k3.z+k4.z);
+    x.push(x2);
+    y.push(y2);
+    z.push(z2);
+
+    // perturbing x direction
+    let xp = x1+r0;
+    k1 = f(xp,y1,z1);
+    k2 = f(xp+k1.x/2*dt,y1+k1.y/2*dt,z1+k1.z/2*dt);
+    k3 = f(xp+k2.x/2*dt,y1+k2.y/2*dt,z1+k2.z/2*dt);
+    k4 = f(xp+k3.x*dt,y1+k3.y*dt,z1+k3.z*dt);
+    let xpf = xp + dt/6*(k1.x+2*k2.x+2*k3.x+k4.x);
+    let ypf = y1 + dt/6*(k1.y+2*k2.y+2*k3.y+k4.y);
+    let zpf = z1 + dt/6*(k1.z+2*k2.z+2*k3.z+k4.z);
+    let r = sqrt((xpf-x2)**2+(ypf-y2)**2+(zpf-z2)**2)
+    let Lx = log(r/r0)/dt;
+
+    // perturbing y direction
+    let yp = y1+r0;
+    k1 = f(x1,yp,z1);
+    k2 = f(x1+k1.x/2*dt,yp+k1.y/2*dt,z1+k1.z/2*dt);
+    k3 = f(x1+k2.x/2*dt,yp+k2.y/2*dt,z1+k2.z/2*dt);
+    k4 = f(x1+k3.x*dt,yp+k3.y*dt,z1+k3.z*dt);
+    xpf = x1 + dt/6*(k1.x+2*k2.x+2*k3.x+k4.x);
+    ypf = yp + dt/6*(k1.y+2*k2.y+2*k3.y+k4.y);
+    zpf = z1 + dt/6*(k1.z+2*k2.z+2*k3.z+k4.z);
+    r = sqrt((xpf-x2)**2+(ypf-y2)**2+(zpf-z2)**2)
+    let Ly = log(r/r0)/dt;
+
+    // perturbing z direction
+    let zp = z1+r0;
+    k1 = f(x1,y1,zp);
+    k2 = f(x1+k1.x/2*dt,y1+k1.y/2*dt,zp+k1.z/2*dt);
+    k3 = f(x1+k2.x/2*dt,y1+k2.y/2*dt,zp+k2.z/2*dt);
+    k4 = f(x1+k3.x*dt,y1+k3.y*dt,zp+k3.z*dt);
+    xpf = x1 + dt/6*(k1.x+2*k2.x+2*k3.x+k4.x);
+    ypf = y1 + dt/6*(k1.y+2*k2.y+2*k3.y+k4.y);
+    zpf = zp + dt/6*(k1.z+2*k2.z+2*k3.z+k4.z);
+    r = sqrt((xpf-x2)**2+(ypf-y2)**2+(zpf-z2)**2)
+    let Lz = log(r/r0)/dt;
+
+    // determining largest lyapunov exponent
+    if (abs(Lx) > abs(Ly) && abs(Lx) > abs(Lz))
+        LL.push(Lx)
+    else if (abs(Ly) > abs(Lx) && abs(Ly) > abs(Lz))
+        LL.push(Ly)
+    else
+        LL.push(Lz)
+
+    // resetting values
+    x1 = x2;
+    y1 = y2;
+    z1 = z2;
 
 }
 
 // grid draw function
 function drawGrid(){
-    stroke(188,192,204);
+    stroke(223,16,83);
     let xVal = xRange[0];
     while(xVal <=xRange[1]){
         xStart = xVal*(xMaxVal - xMinVal)+xMinVal;

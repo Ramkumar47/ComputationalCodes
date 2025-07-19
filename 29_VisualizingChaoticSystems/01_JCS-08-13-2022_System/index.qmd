@@ -1,0 +1,21 @@
+---
+title: "JCS-08-13-2022 System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& z \\
+\dot{y} &=& xy+xz \\
+\dot{z} &=& ax^3+y^3
+\end{eqnarray}
+$$
+
+with $a=-0.1$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```
