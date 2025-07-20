@@ -1,0 +1,21 @@
+---
+title: "Signum Thermostat System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& y\\
+\dot{y} &=& -x+a sign(z)y\\
+\dot{z} &=& y^2-1
+\end{eqnarray}
+$$
+
+with $a=-2$ and initial condition $(1,-2,0)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

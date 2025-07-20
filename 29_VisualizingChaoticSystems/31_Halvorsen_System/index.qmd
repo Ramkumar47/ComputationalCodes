@@ -1,0 +1,21 @@
+---
+title: "Halvorsen System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& ax-y-z-y^2\\
+\dot{y} &=& ay-z-x-z^2\\
+\dot{z} &=& az-x-y-x^2
+\end{eqnarray}
+$$
+
+with $a=-0.32$ and initial condition $(-2,0,0)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

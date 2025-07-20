@@ -1,0 +1,21 @@
+---
+title: "Wang-Chen System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& yz+a\\
+\dot{y} &=& x^2+by\\
+\dot{z} &=& 1-x
+\end{eqnarray}
+$$
+
+with $a=0.1,b=-2$ and initial condition $(-3,8,1)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

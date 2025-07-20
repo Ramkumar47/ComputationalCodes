@@ -1,0 +1,21 @@
+---
+title: "Time-Reversible Reflection-Invariant System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& -yz\\
+\dot{y} &=& axz+yz+z^3\\
+\dot{z} &=& x-x^3
+\end{eqnarray}
+$$
+
+with $a=2$ and initial condition $(-1,1,-1)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

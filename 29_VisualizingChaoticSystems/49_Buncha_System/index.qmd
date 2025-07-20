@@ -1,0 +1,21 @@
+---
+title: "Buncha System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& ay\\
+\dot{y} &=& -x-zy\\
+\dot{z} &=& |y|-1
+\end{eqnarray}
+$$
+
+with $a=0.3$ and initial condition $(-1,5,0)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

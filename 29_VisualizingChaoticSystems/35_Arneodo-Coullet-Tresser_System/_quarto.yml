@@ -1,0 +1,7 @@
+project:
+  title: "Arnéodo-Coullet-Tresser System"
+format:
+  html:
+    theme: [cosmo,_extensions/catppuccin_latte.scss]
+
+

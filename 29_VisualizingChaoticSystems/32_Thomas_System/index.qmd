@@ -1,0 +1,21 @@
+---
+title: "Thomas System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& ax+sin(y)\\
+\dot{y} &=& ay+sin(z)\\
+\dot{z} &=& az+sin(x)
+\end{eqnarray}
+$$
+
+with $a=-0.1$ and initial condition $(-1,-2,2)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

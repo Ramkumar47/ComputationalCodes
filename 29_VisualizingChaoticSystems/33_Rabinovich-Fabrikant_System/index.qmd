@@ -1,0 +1,21 @@
+---
+title: "Rabinovich-Fabrikant System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& yz-y+ax^2y+x\\
+\dot{y} &=& xz+x-x^3+by\\
+\dot{z} &=& -z-xyz
+\end{eqnarray}
+$$
+
+with $a=0.6,b=0.07$ and initial condition $(2,-1,1)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

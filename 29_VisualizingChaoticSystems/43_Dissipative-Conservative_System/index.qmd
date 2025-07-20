@@ -1,0 +1,21 @@
+---
+title: "Dissipative-Conservative System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& y+xy+xz\\
+\dot{y} &=& 1-x^2+yz\\
+\dot{z} &=& x+ax^2-y^2
+\end{eqnarray}
+$$
+
+with $a=-0.61$ and initial condition $(0,-1,0)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

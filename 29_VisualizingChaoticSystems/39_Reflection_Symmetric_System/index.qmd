@@ -1,0 +1,21 @@
+---
+title: "Reflection Symmetric System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& x+xy\\
+\dot{y} &=& -z\\
+\dot{z} &=& y+az+x^2
+\end{eqnarray}
+$$
+
+with $a=-0.2$ and initial condition $(1,-13,32)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

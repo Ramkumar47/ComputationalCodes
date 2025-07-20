@@ -1,0 +1,7 @@
+project:
+  title: "Wei System"
+format:
+  html:
+    theme: [cosmo,_extensions/catppuccin_latte.scss]
+
+

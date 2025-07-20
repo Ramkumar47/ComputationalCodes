@@ -1,0 +1,21 @@
+---
+title: "Line Equilibrium System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& y\\
+\dot{y} &=& -x+yz\\
+\dot{z} &=& ax-xy+bxz
+\end{eqnarray}
+$$
+
+with $a=0.3,b=0.1$ and initial condition $(2,3,-1)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

@@ -1,0 +1,21 @@
+---
+title: "Lorenz-84 System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& -y^20z^2-x+1\\
+\dot{y} &=& y-xz+ay+1\\
+\dot{z} &=& xy+xz-z
+\end{eqnarray}
+$$
+
+with $a=-0.1$ and initial condition $(-5,-1,-2)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

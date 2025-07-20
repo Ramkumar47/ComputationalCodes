@@ -1,0 +1,21 @@
+---
+title: "Chua System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& y-x+(|x+1|-|x-1|)\\
+\dot{y} &=& x+z\\
+\dot{z} &=& ay
+\end{eqnarray}
+$$
+
+with $a=-3.5$ and initial condition $(3,1,-7)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

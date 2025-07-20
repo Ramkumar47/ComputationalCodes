@@ -1,0 +1,21 @@
+---
+title: "Wei System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& -y\\
+\dot{y} &=& x+z\\
+\dot{z} &=& axz+y^2-1
+\end{eqnarray}
+$$
+
+with $a=0.6$ and initial condition $(-3,-1,0)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

@@ -1,0 +1,21 @@
+---
+title: "Elwakil-Kennedy System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& y\\
+\dot{y} &=& z\\
+\dot{z} &=& -z-y+ax+sgn(x)
+\end{eqnarray}
+$$
+
+with $a=-2$ and initial condition $(-1,1,0)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

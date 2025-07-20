@@ -1,0 +1,21 @@
+---
+title: "Leipnik-Newton System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& -x+y+yz\\
+\dot{y} &=& ax-y+xy\\
+\dot{z} &=& z-xy
+\end{eqnarray}
+$$
+
+with $a=-32$ and initial condition $(-1,5,-2)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

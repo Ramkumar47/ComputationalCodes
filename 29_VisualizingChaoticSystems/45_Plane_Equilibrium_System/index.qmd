@@ -1,0 +1,21 @@
+---
+title: "Plane Equilibrium System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& xz\\
+\dot{y} &=& axz^2-x^2y\\
+\dot{z} &=& -x^2+xy
+\end{eqnarray}
+$$
+
+with $a=3$ and initial condition $(1,2,-1)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

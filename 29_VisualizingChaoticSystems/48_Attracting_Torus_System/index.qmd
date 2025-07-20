@@ -1,0 +1,21 @@
+---
+title: "Attracting Torus System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& y\\
+\dot{y} &=& -x-zy\\
+\dot{z} &=& y^2+a+bz
+\end{eqnarray}
+$$
+
+with $a=-4,b=0.1$ and initial condition $(0,2,1)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

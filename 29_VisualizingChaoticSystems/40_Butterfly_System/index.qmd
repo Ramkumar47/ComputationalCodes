@@ -1,0 +1,21 @@
+---
+title: "Butterfly System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& y+yz\\
+\dot{y} &=& -xz+yz\\
+\dot{z} &=& az-xy+1
+\end{eqnarray}
+$$
+
+with $a=-0.5$ and initial condition $(2,1,1)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

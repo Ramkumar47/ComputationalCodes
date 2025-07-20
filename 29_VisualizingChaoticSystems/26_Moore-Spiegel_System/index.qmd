@@ -1,0 +1,21 @@
+---
+title: "Moore-Spiegel System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& y\\
+\dot{y} &=& z\\
+\dot{z} &=& az+by-x^2y-x
+\end{eqnarray}
+$$
+
+with $a=-0.2,b=9$ and initial condition $(-1,-4,9)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

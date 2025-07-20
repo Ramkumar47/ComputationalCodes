@@ -1,0 +1,21 @@
+---
+title: "Arnéodo-Coullet-Tresser System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& ax-y\\
+\dot{y} &=& -y+xz+x^3\\
+\dot{z} &=& -bz+xy-z^2
+\end{eqnarray}
+$$
+
+with $a=0.58,b=0.2$ and initial condition $(-2,-1,0)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```

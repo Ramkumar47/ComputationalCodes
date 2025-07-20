@@ -1,0 +1,21 @@
+---
+title: "Forced Ueda System"
+---
+
+## Simulation
+
+The governing equations of this chaotic system are
+
+$$
+\begin{eqnarray}
+\dot{x} &=& ay\\
+\dot{y} &=& -x+by+\sin(z)\\
+\dot{z} &=& 1
+\end{eqnarray}
+$$
+
+with $a=5,b=0.1$ and initial condition $(0,1,-3)$.
+
+```{=html}
+<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
+```
