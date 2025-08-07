@@ -13,34 +13,31 @@
 // main file
 int main(int argc, char* argv[]){
 
-    int nRowA = 3, nColA = 3;
-    int A[nRowA*nColA] = {0};
-    int x[nColA] = {0};
-    int b[nRowA] = {0};
+    // size of matrix
+    int n = 3;
 
-    initializeRandomUniform(A,nRowA*nColA,-10,10,1);
-    initializeRandomUniform(x,nColA,-10,10,1);
+    // initializing matrix
+    double A[] = {0,1,2,3,4,5,6,7,8};
 
-    printMatrix(A,nRowA,nColA);
-    printVector(x,nColA);
+    // expected eigen value max = 13.348462
+    // corresponding eigen vector = [ 0.16476382,  0.79969966,  0.40824829]
 
-    vectorMultiplication(A,nRowA,nColA,x,b);
+    // initializing vector
+    double x_t[n]   = {0};
+    double x_tp1[n] = {0};
 
-    printVector(b,nRowA);
+    initializeRandomUniform(x_t,n,-1.0,1.0,1);
 
-    int val = vectorDotProduct(b,b,nRowA);
+    // setting convergence tolerance
+    double tol = 1e-4;
 
-    std::cout << val << std::endl;
+    // declaring eigen value variables
+    double lambda_t=0, lambda_tp1=0;
 
-    double c[nColA] = {0};
+    int maxItr = 1000;
 
-    intializeRandomUniform(c,nColA,1);
-
-    double val2 = vectorDotProduct(c,c,nColA);
-
-    std::cout << val2 << std::endl;
-
-
+    for(int itr=0; itr<maxItr; itr++){
+    }
 }
 
 
