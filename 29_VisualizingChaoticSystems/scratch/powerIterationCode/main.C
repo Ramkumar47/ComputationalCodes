@@ -6,6 +6,7 @@
 \*===========================================================================*/
 
 // preprocessor directives
+#include<iomanip>
 #include "linearAlgebra.H"
 
 /*---------------------------------------------------------------------------*/
@@ -20,24 +21,20 @@ int main(int argc, char* argv[]){
     double A[] = {0,1,2,3,4,5,6,7,8};
 
     // expected eigen value max = 13.348462
-    // corresponding eigen vector = [ 0.16476382,  0.79969966,  0.40824829]
+    // corresponding eigen vector = [0.16476382, 0.50577448, 0.84678513]
 
-    // initializing vector
-    double x_t[n]   = {0};
-    double x_tp1[n] = {0};
+    double lambda;
+    double eigenVector[n]={0};
+    powerIterationFunction(A,n,1e-12,lambda,eigenVector);
 
-    initializeRandomUniform(x_t,n,-1.0,1.0,1);
 
-    // setting convergence tolerance
-    double tol = 1e-4;
+    std::cout << std::setprecision(12) << "max eigen value = " << lambda << std::endl;
+    std::cout << "corresponding eigen vector" << std::endl;
+    printVector(eigenVector,n);
 
-    // declaring eigen value variables
-    double lambda_t=0, lambda_tp1=0;
+    std::cout << " test log value " << log(lambda) << std::endl;
 
-    int maxItr = 1000;
 
-    for(int itr=0; itr<maxItr; itr++){
-    }
 }
 
 

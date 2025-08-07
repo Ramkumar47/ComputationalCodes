@@ -269,10 +269,8 @@ void powerIterationFunction(double* A, unsigned short nSize, double tolerance,
 
         // checking convergence
         if (abs(lambda_tp1-lambda_t)<tolerance){
-            std::cout << "Converged in " << itr+1 <<" iterations" << std::endl;
-            // std::cout << "max mag eigen value = " << lambda_tp1 << std::endl;
-            // std::cout << "corresponding eigen vector " << std::endl;
-            // printVector(x_tp1,nSize);
+            std::cout << "Power iteation converged in "
+                << itr+1 <<" iterations" << std::endl;
             eigenValue = lambda_tp1;
             for(unsigned short i=0; i<nSize; i++)
                 eigenVector[i] = x_tp1[i];
