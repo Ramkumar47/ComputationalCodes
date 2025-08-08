@@ -8,7 +8,7 @@ The governing equations of this chaotic system are
 
 $$
 \begin{eqnarray}
-\dot{x} &=& -y^20z^2-x+1\\
+\dot{x} &=& -y^2-z^2-x+1\\
 \dot{y} &=& y-xz+ay+1\\
 \dot{z} &=& xy+xz-z
 \end{eqnarray}
