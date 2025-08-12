@@ -11,9 +11,9 @@
 void chaoticSystemFunction(double x, double y, double z,
         double& xDot, double& yDot, double& zDot){
 
-    xDot = y-x;
-    yDot = -x*z+x;
-    zDot = x*y-0.08*z;
+    xDot = y*z-y+0.6*pow(x,2)*y+x;
+    yDot = x*z+x-pow(x,3)+0.07*y;
+    zDot = -z-x*y*z;
 
 }
 
@@ -21,15 +21,15 @@ void chaoticSystemFunction(double x, double y, double z,
 void jacobianMatrixFunction(double x, double y, double z, double* jacobian){
 
     // filling in row-major order
-    jacobian[0] = -1.0;
-    jacobian[1] = 1.0;
-    jacobian[2] = 0.0;
-    jacobian[3] = -z+1;
-    jacobian[4] = 0;
-    jacobian[5] = -x;
-    jacobian[6] = y;
-    jacobian[7] = x;
-    jacobian[8] = -0.08;
+    jacobian[0] = 1.0 + 1.2*x*y;
+    jacobian[1] = z-1.0+0.6*pow(x,2);
+    jacobian[2] = y;
+    jacobian[3] = z+1-3*pow(x,2);
+    jacobian[4] = 0.07;
+    jacobian[5] = x;
+    jacobian[6] = -y*z;
+    jacobian[7] = -x*z;
+    jacobian[8] = -1-x*y;
 }
 
 // computation parameters definition
@@ -42,7 +42,7 @@ int writeInterval         = 1000;
 
 std::string fileName      = "solutionData.csv";
 
-double initialCondition[] = {-2,2,2};
+double initialCondition[] = {2,-1,1};
 
 double lyapunovTolerance  = 1e-7;
 
