@@ -22,7 +22,7 @@ float colorSwitcher(float LVal){
 }
 
 void setup(){
-    size(400,400,P3D);
+    size(800,800,P3D);
 
     dataTable = loadTable("solutionData.csv","header");
 
@@ -56,7 +56,7 @@ void setup(){
             LMin = L[idx];
     }
 
-    cameraRadius = width/10;
+    cameraRadius = width;
 
     camera(cameraRadius*cos(angle)+width/2,height/2,cameraRadius*sin(angle)+height/2,
     width/2,height/2,height/2,0,1,0);
@@ -72,7 +72,7 @@ void draw(){
 
     pushMatrix();
     translate(width/2,height/2,height/2);
-    scale(width/(xMax-xMin)*0.1);
+    scale(width/(xMax-xMin)*0.4);
     strokeWeight(0.01);
     colorMode(HSB,360,100,100);
     for(int i=1; i<rowCount; i++){
@@ -99,4 +99,3 @@ void draw(){
         noLoop();
     saveFrame("line-######.png");
 }
-
