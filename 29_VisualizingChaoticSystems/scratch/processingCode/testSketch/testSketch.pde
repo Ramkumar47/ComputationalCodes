@@ -34,6 +34,8 @@ void setup(){
         z[idx] = row.getFloat("z");
         L[idx] = row.getFloat("L");
         idx++;
+        if (idx==rowCount)
+            break;
     }
 
     // finding max and min values
@@ -72,18 +74,18 @@ void draw(){
 
     pushMatrix();
     translate(width/2,height/2,height/2);
-    scale(width/(xMax-xMin)*0.4);
+    scale(width/(xMax-xMin)*0.7);
     strokeWeight(0.01);
     colorMode(HSB,360,100,100);
     for(int i=1; i<rowCount; i++){
         float hueVal = colorSwitcher(L[i]);
         stroke(hueVal, 79, 105);
         xEnd = x[i];
-        yEnd = y[i];
-        zEnd = z[i];
+        yEnd = -y[i];
+        zEnd = -z[i];
         xStart = x[i-1];
-        yStart = y[i-1];
-        zStart = z[i-1];
+        yStart = -y[i-1];
+        zStart = -z[i-1];
         line(xStart,yStart,zStart,xEnd,yEnd,zEnd);
     }
     popMatrix();
@@ -97,5 +99,5 @@ void draw(){
 
     if(angle > 2*PI)
         noLoop();
-    saveFrame("line-######.png");
+    saveFrame("frames/line-######.png");
 }
