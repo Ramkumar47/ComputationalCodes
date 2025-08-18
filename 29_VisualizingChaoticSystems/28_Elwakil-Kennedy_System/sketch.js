@@ -27,8 +27,8 @@ let cam; // camera variable
 let camResetButton;
 let simulationResetButton;
 let startSimulation=false;
-let hueCoeff = 0.3; // hue slope coeff. for lyapunov coloring
-let hueOff = 3; // hue slope coeff. for lyapunov coloring
+// let hueCoeff = 0.3; // hue slope coeff. for lyapunov coloring
+// let hueOff = 3; // hue slope coeff. for lyapunov coloring
 
 // equation function definition
 function f(xVal,yVal,zVal){
@@ -174,11 +174,11 @@ function resetView(){
     cam.lookAt(0,0,0);
 }
 
-// hue function based on local lyapunov exponent
-function hueVal(Lval){
-    val = (1/(1+exp(-hueCoeff*Lval+hueOff)))*(0-220)+220;
-    return val;
-}
+// // hue function based on local lyapunov exponent
+// function hueVal(Lval){
+//     val = (1/(1+exp(-hueCoeff*Lval+hueOff)))*(0-220)+220;
+//     return val;
+// }
 
 // draw the solution curve
 function drawSolution(){
@@ -186,7 +186,8 @@ function drawSolution(){
     let xEnd,yEnd,zEnd;
     let xSize = x.length;
     for(let i=1; i<xSize; i=i+1){
-        stroke(hueVal(LL[i]),87,44);
+        // stroke(hueVal(LL[i]),87,44);
+        stroke(266,85,58);
         xStart = x[i-1]*(xMaxVal - xMinVal)+xMinVal;
         yStart = y[i-1]*(yMaxVal - yMinVal)+yMinVal;
         zStart = z[i-1]*(zMaxVal - zMinVal)+zMinVal;
