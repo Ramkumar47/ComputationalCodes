@@ -93,7 +93,7 @@ void draw(){
     ortho(); // orthogonal projection
 
     camera(cameraRadius*cos(angle)+width/2,height/2,cameraRadius*sin(angle)+height/2,
-    width/2,height/4,height/2,0,1,0);
+    width/2,height/2,height/2,0,1,0);
 
     angle += 1/30.0/PI;
 
