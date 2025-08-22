@@ -34,11 +34,11 @@ void jacobianMatrixFunction(double x, double y, double z, double* jacobian){
 
 // computation parameters definition
 
-double timeStep           = 1e-4;
+double timeStep           = 1e-5;
 
-double endSimTime         = 1000.0;
+double endSimTime         = 10000.0;
 
-int writeInterval         = 100;
+int writeInterval         = 1000;
 
 std::string fileName      = "solutionData.csv";
 

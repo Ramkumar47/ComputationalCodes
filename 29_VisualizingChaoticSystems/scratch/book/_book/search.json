@@ -1,0 +1,52 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Visualizing 3D chaotic systems",
+    "section": "",
+    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "2  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "crumbs": [
+      "References"
+    ]
+  },
+  {
+    "objectID": "../../01_JCS-08-13-2022_System/index.html",
+    "href": "../../01_JCS-08-13-2022_System/index.html",
+    "title": "3  JCS-08-13-2022 System",
+    "section": "",
+    "text": "3.1 Simulation\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& z \\\\\n\\dot{y} &=& xy+xz \\\\\n\\dot{z} &=& ax^3+y^3\n\\end{eqnarray}\n\\]\nwith \\(a=-0.1\\) and initial condition \\((-1,0,0)\\).\nAn animation of the pre-computed solution trajectory for the given chaotic system is presented below. The trajectory, spanning 103 seconds, is colored according to the calculated local Lyapunov exponents at each point in time.\nA left-to-right 360o view of the chaotic system trajectory\nThe colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.\nFurthermore, the real-time simulation may be executed up to the designated end time as indicated below. As the simulation progresses, the 3D view of trajectory evolution can be explored by click-drag & scroll options in the mouse/touchpad.\nThe visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>JCS-08-13-2022 System</span>"
+    ]
+  }
+]

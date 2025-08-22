@@ -2,7 +2,7 @@
 title: "Sprott O System"
 ---
 
-## Simulation
+## System description
 
 The governing equations of this chaotic system are
 
@@ -16,17 +16,25 @@ $$
 
 with $a=0.3$ and initial condition $(-2,0,-1)$.
 
-An animation showing the pre-computed solution trajectory in the phase space
-colored with the local lyapunov coefficients for the current chaotic system can
-be seen below.
+An animation of the pre-computed solution trajectory for the given chaotic
+system is presented below. The trajectory, spanning 10^3^ seconds, is colored
+according to the calculated local [Lyapunov exponents](https://en.wikipedia.org/wiki/Lyapunov_exponent){target="blank"} at each point in time.
 
 <video width="90%" style="display: block; margin: 0 auto;" controls muted autoplay loop>
   <source src="https://github.com/Ramkumar47/ComputationalCodes/blob/main/29_VisualizingChaoticSystems/18_Sprott_O_System/animation.mp4?raw=true" type="video/webm">
 </video>
+A left-to-right 360^o^ view of the chaotic system trajectory
 
-Further, the real-time simulation until the specified end time can be performed
-below.
+The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system's predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.
+ 
+## Real-time simulation 
 
+The real-time simulation can be executed up to the designated end
+time as indicated below. As the simulation progresses, the 3D view of trajectory
+evolution can be explored by click-drag & scroll options in the mouse/touchpad.
+
+The visualization was made using     [P5.js](https://p5js.org/){target="blank"}.
+ 
 ```{=html}
 <iframe width="800" height="800"
 src="https://editor.p5js.org/RamkumarRK47/full/b229hLDGK"></iframe>

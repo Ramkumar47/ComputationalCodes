@@ -1,0 +1,47 @@
+# Preface {.unnumbered}
+
+This site contains the visualizations of the 3D chaotic systems described
+in the book *Elegant Automation: Robotic Analysis of Chaotic Systems* by
+@sprott2023elegant.
+
+Each chapter contains the description and visualizations of one chaotic system.
+There are two modes of visualization specified: pre-computed visualization, and
+real-time simulation.
+
+The pre-computed visualization for each system was made with a java-based
+creative coding language called
+[Processing](https://processing.org/){target="blank}. It contains the 3D
+trajectory computed for each system for a simulation time of 10^3^ seconds. The
+trajectory is colored based on the values of local Lyapunov exponent, it
+visualizes how predictable or unpredictable the each portion of the trajectory.
+
+The real-time simulation was made using another creative coding language called
+[P5.js](https://p5js.org/){target="blank"}. It is based on the interpreter
+language called javascript. The P5.js was used due to being interactive and
+having html embedding capability. An online editor for P5 is also available
+[here](https://editor.p5js.org/){target="blank"}. Because of its interpreter
+nature, P5.js  has caused the following limitations and cautions.
+
+
+
+::: {.callout-note}
+
+Due to the high computational cost and processing delays, the calculation of
+local Lyapunov exponents and the corresponding color-coding were omitted in the
+real-time simulations. Consequently, the trajectories in these simulations are
+displayed in a uniform solid color.
+
+:::
+
+::: {.callout-warning}
+
+Running real-time simulations for extended durations may cause the web browser
+to slow down or become unresponsive. Therefore, it is recommended to limit the
+simulation time to the predefined duration within the browser.
+
+However, the source code for all simulation files has been made open-source,
+with links provided in the summary section. Interested readers may download the
+code and run the simulations locally to achieve improved performance and
+longer simulation times.
+
+:::

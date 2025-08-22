@@ -1,0 +1,25 @@
+project:
+  type: book
+
+book:
+  title: "Visualizing 3D chaotic systems"
+  author: "Norah Jones"
+  date: "8/22/2025"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+    - ../../01_JCS-08-13-2022_System/index.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: [cosmo,_extensions/catppuccin_latte.scss]
+
+  pdf:
+    documentclass: scrreprt
+
+
+

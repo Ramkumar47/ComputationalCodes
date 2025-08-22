@@ -1,0 +1,1372 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Visualizing 3D chaotic systems",
+    "section": "",
+    "text": "Preface\nThis site contains the visualizations of the 3D chaotic systems described in the book Elegant Automation: Robotic Analysis of Chaotic Systems by Sprott (2023).\nEach chapter contains the description and visualizations of one chaotic system. There are two modes of visualization specified: pre-computed visualization, and real-time simulation.\nThe pre-computed visualization for each system was made with a java-based creative coding language called Processing. It contains the 3D trajectory computed for each system for a simulation time of 103 seconds. The trajectory is colored based on the values of local Lyapunov exponent, it visualizes how predictable or unpredictable the each portion of the trajectory.\nThe real-time simulation was made using another creative coding language called P5.js. It is based on the interpreter language called javascript. The P5.js was used due to being interactive and having html embedding capability. An online editor for P5 is also available here. Because of its interpreter nature, P5.js has caused the following limitations and cautions.\n\n\n\n\n\n\nNote\n\n\n\nDue to the high computational cost and processing delays, the calculation of local Lyapunov exponents and the corresponding color-coding were omitted in the real-time simulations. Consequently, the trajectories in these simulations are displayed in a uniform solid color.\n\n\n\n\n\n\n\n\nWarning\n\n\n\nRunning real-time simulations for extended durations may cause the web browser to slow down or become unresponsive. Therefore, it is recommended to limit the simulation time to the predefined duration within the browser.\nHowever, the source code for all simulation files has been made open-source, with links provided in the summary section. Interested readers may download the code and run the simulations locally to achieve improved performance and longer simulation times.\n\n\n\n\n\n\nSprott, Julien Clinton. 2023. Elegant Automation: Robotic Analysis of Chaotic Systems. World Scientific.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "Summary",
+    "section": "",
+    "text": "This online book contains the visualizations of 3D chaotic systems described in the book Elegant Automation: Robotic Analysis of Chaotic Systems by Sprott (2023) .\nThese visualizations were made using the following tools\n\nC++ programming language - for pre-computed visualizations\nP5.js creative coding language - for real-time simulations\nProcessing creative language - for 3D visualizations of pre-computed solutions.\n\nAll the computer programs for this project were made open-source and available in the github repository here.\nThis project would not have been possible without the major tools: P5.js and Processing. Please support their community for their sustainability and development. Their official websites are given below.\n\nP5.js\nProcessing\n\nThere is a youtube channel that would be helpful and fun for the programming enthusiasts who wanna do creative programming. The channel name is The coding train by Daniel Shiffman. The link to his channel is here. Daniel has also made a book on the P5.js based creative coding. It is named The Nature of Code and its online version can be found here.\nLast but not least, this entire site is made with another open-source tool called Quarto, which is easy-to-use document creator based on markdown language. With its ever-growing community, Quarto may replace LaTeX for documentations soon.\nOur little support to these communities will create more enthusiastic works in the literature.\n\n\n\n\nSprott, Julien Clinton. 2023. Elegant Automation: Robotic Analysis of Chaotic Systems. World Scientific.",
+    "crumbs": [
+      "Summary"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Sprott, Julien Clinton. 2023. Elegant Automation: Robotic Analysis\nof Chaotic Systems. World Scientific.",
+    "crumbs": [
+      "References"
+    ]
+  },
+  {
+    "objectID": "../../01_JCS-08-13-2022_System/index.html",
+    "href": "../../01_JCS-08-13-2022_System/index.html",
+    "title": "3  JCS-08-13-2022 System",
+    "section": "",
+    "text": "3.1 Simulation\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& z \\\\\n\\dot{y} &=& xy+xz \\\\\n\\dot{z} &=& ax^3+y^3\n\\end{eqnarray}\n\\]\nwith \\(a=-0.1\\) and initial condition \\((-1,0,0)\\).\nAn animation of the pre-computed solution trajectory for the given chaotic system is presented below. The trajectory, spanning 103 seconds, is colored according to the calculated local Lyapunov exponents at each point in time.\nA left-to-right 360o view of the chaotic system trajectory\nThe colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.\nFurthermore, the real-time simulation may be executed up to the designated end time as indicated below. As the simulation progresses, the 3D view of trajectory evolution can be explored by click-drag & scroll options in the mouse/touchpad.\nThe visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>JCS-08-13-2022 System</span>"
+    ]
+  },
+  {
+    "objectID": "01_JCS-08-13-2022_System/index.html",
+    "href": "01_JCS-08-13-2022_System/index.html",
+    "title": "1  JCS-08-13-2022 System",
+    "section": "",
+    "text": "1.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& z \\\\\n\\dot{y} &=& xy+xz \\\\\n\\dot{z} &=& ax^3+y^3\n\\end{eqnarray}\n\\]\nwith \\(a=-0.1\\) and initial condition \\((-1,0,0)\\).\nAn animation of the pre-computed solution trajectory for the given chaotic system is presented below. The trajectory, spanning 103 seconds, is colored according to the calculated local Lyapunov exponents at each point in time.\nA left-to-right 360o view of the chaotic system trajectory\nThe colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>JCS-08-13-2022 System</span>"
+    ]
+  },
+  {
+    "objectID": "01_JCS-08-13-2022_System/index.html#real-time-simulation",
+    "href": "01_JCS-08-13-2022_System/index.html#real-time-simulation",
+    "title": "1  JCS-08-13-2022 System",
+    "section": "1.2 Real-time simulation",
+    "text": "1.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end time as indicated below. As the simulation progresses, the 3D view of trajectory evolution can be explored by click-drag & scroll options in the mouse/touchpad.\nThe visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>JCS-08-13-2022 System</span>"
+    ]
+  },
+  {
+    "objectID": "02_Lorenz_System/index.html",
+    "href": "02_Lorenz_System/index.html",
+    "title": "2  Lorenz System",
+    "section": "",
+    "text": "2.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& y - x \\\\\n\\dot{y} &=& -xz+x \\\\\n\\dot{z} &=& xy - az\n\\end{eqnarray}\n\\]\nwith \\(a=0.08\\) and initial condition \\((-2,2,2)\\).\nAn animation of the pre-computed solution trajectory for the given chaotic system is presented below. The trajectory, spanning 103 seconds, is colored according to the calculated local Lyapunov exponents at each point in time.\nA left-to-right 360o view of the chaotic system trajectory\nThe colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lorenz System</span>"
+    ]
+  },
+  {
+    "objectID": "02_Lorenz_System/index.html#real-time-simulation",
+    "href": "02_Lorenz_System/index.html#real-time-simulation",
+    "title": "2  Lorenz System",
+    "section": "2.2 Real-time simulation",
+    "text": "2.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end time as indicated below. As the simulation progresses, the 3D view of trajectory evolution can be explored by click-drag & scroll options in the mouse/touchpad.\nThe visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lorenz System</span>"
+    ]
+  },
+  {
+    "objectID": "03_Rossler_System/index.html",
+    "href": "03_Rossler_System/index.html",
+    "title": "3  Rössler System",
+    "section": "",
+    "text": "3.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& -y-z\\\\\n\\dot{y} &=& x+ay\\\\\n\\dot{z} &=& 1+xz-bz\n\\end{eqnarray}\n\\]\nwith \\(a=0.5, b=3\\) and initial condition \\((3,-2,1)\\).\nAn animation of the pre-computed solution trajectory for the given chaotic system is presented below. The trajectory, spanning 103 seconds, is colored according to the calculated local Lyapunov exponents at each point in time.\nA left-to-right 360o view of the chaotic system trajectory\nThe colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Rössler System</span>"
+    ]
+  },
+  {
+    "objectID": "03_Rossler_System/index.html#real-time-simulation",
+    "href": "03_Rossler_System/index.html#real-time-simulation",
+    "title": "3  Rössler System",
+    "section": "3.2 Real-time simulation",
+    "text": "3.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end time as indicated below. As the simulation progresses, the 3D view of trajectory evolution can be explored by click-drag & scroll options in the mouse/touchpad.\nThe visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Rössler System</span>"
+    ]
+  },
+  {
+    "objectID": "04_Nose-Hoover_System/index.html",
+    "href": "04_Nose-Hoover_System/index.html",
+    "title": "4  Nosé-Hoover System",
+    "section": "",
+    "text": "4.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& y \\\\\n\\dot{y} &=& -x-zy\\\\\n\\dot{z} &=& y^2-a\n\\end{eqnarray}\n\\]\nwith \\(a=1\\) and initial condition \\((5,5,0)\\).\nAn animation of the pre-computed solution trajectory for the given chaotic system is presented below. The trajectory, spanning 103 seconds, is colored according to the calculated local Lyapunov exponents at each point in time.\nA left-to-right 360o view of the chaotic system trajectory\nThe colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Nosé-Hoover System</span>"
+    ]
+  },
+  {
+    "objectID": "04_Nose-Hoover_System/index.html#real-time-simulation",
+    "href": "04_Nose-Hoover_System/index.html#real-time-simulation",
+    "title": "4  Nosé-Hoover System",
+    "section": "4.2 Real-time simulation",
+    "text": "4.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end time as indicated below. As the simulation progresses, the 3D view of trajectory evolution can be explored by click-drag & scroll options in the mouse/touchpad.\nThe visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Nosé-Hoover System</span>"
+    ]
+  },
+  {
+    "objectID": "05_Diffusionless_Lorenz_System/index.html",
+    "href": "05_Diffusionless_Lorenz_System/index.html",
+    "title": "5  Diffusionless Lorenz System",
+    "section": "",
+    "text": "5.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& y-x \\\\\n\\dot{y} &=& -xz \\\\\n\\dot{z} &=& xy-a\n\\end{eqnarray}\n\\]\nwith \\(a=1\\) and initial condition \\((1,0,1)\\).\nAn animation of the pre-computed solution trajectory for the given chaotic system is presented below. The trajectory, spanning 103 seconds, is colored according to the calculated local Lyapunov exponents at each point in time.\nA left-to-right 360o view of the chaotic system trajectory\nThe colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Diffusionless Lorenz System</span>"
+    ]
+  },
+  {
+    "objectID": "05_Diffusionless_Lorenz_System/index.html#real-time-simulation",
+    "href": "05_Diffusionless_Lorenz_System/index.html#real-time-simulation",
+    "title": "5  Diffusionless Lorenz System",
+    "section": "5.2 Real-time simulation",
+    "text": "5.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end time as indicated below. As the simulation progresses, the 3D view of trajectory evolution can be explored by click-drag & scroll options in the mouse/touchpad.\nThe visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Diffusionless Lorenz System</span>"
+    ]
+  },
+  {
+    "objectID": "06_Sprott_C_System/index.html",
+    "href": "06_Sprott_C_System/index.html",
+    "title": "6  Sprott C System",
+    "section": "",
+    "text": "6.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& y-x \\\\\n\\dot{y} &=& -xz \\\\\n\\dot{z} &=& y^2-a\n\\end{eqnarray}\n\\]\nwith \\(a=1\\) and initial condition \\((-1,0,1)\\).\nAn animation of the pre-computed solution trajectory for the given chaotic system is presented below. The trajectory, spanning 103 seconds, is colored according to the calculated local Lyapunov exponents at each point in time.\nA left-to-right 360o view of the chaotic system trajectory\nThe colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Sprott C System</span>"
+    ]
+  },
+  {
+    "objectID": "06_Sprott_C_System/index.html#real-time-simulation",
+    "href": "06_Sprott_C_System/index.html#real-time-simulation",
+    "title": "6  Sprott C System",
+    "section": "6.2 Real-time simulation",
+    "text": "6.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end time as indicated below. As the simulation progresses, the 3D view of trajectory evolution can be explored by click-drag & scroll options in the mouse/touchpad.\nThe visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Sprott C System</span>"
+    ]
+  },
+  {
+    "objectID": "07_Sprott_D_System/index.html",
+    "href": "07_Sprott_D_System/index.html",
+    "title": "7  Sprott D System",
+    "section": "",
+    "text": "7.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& -y \\\\\n\\dot{y} &=& x+z \\\\\n\\dot{z} &=& xz+ay^2\n\\end{eqnarray}\n\\]\nwith \\(a=3\\) and initial condition \\((-1,-1,2)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Sprott D System</span>"
+    ]
+  },
+  {
+    "objectID": "07_Sprott_D_System/index.html#system-description",
+    "href": "07_Sprott_D_System/index.html#system-description",
+    "title": "7  Sprott D System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Sprott D System</span>"
+    ]
+  },
+  {
+    "objectID": "07_Sprott_D_System/index.html#real-time-simulation",
+    "href": "07_Sprott_D_System/index.html#real-time-simulation",
+    "title": "7  Sprott D System",
+    "section": "7.2 Real-time simulation",
+    "text": "7.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Sprott D System</span>"
+    ]
+  },
+  {
+    "objectID": "08_Sprott_E_System/index.html",
+    "href": "08_Sprott_E_System/index.html",
+    "title": "8  Sprott E System",
+    "section": "",
+    "text": "8.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& yz \\\\\n\\dot{y} &=& -x^2-y \\\\\n\\dot{z} &=& 1+ax\n\\end{eqnarray}\n\\]\nwith \\(a=6\\) and initial condition \\((1,-2,-2)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Sprott E System</span>"
+    ]
+  },
+  {
+    "objectID": "08_Sprott_E_System/index.html#system-description",
+    "href": "08_Sprott_E_System/index.html#system-description",
+    "title": "8  Sprott E System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Sprott E System</span>"
+    ]
+  },
+  {
+    "objectID": "08_Sprott_E_System/index.html#real-time-simulation",
+    "href": "08_Sprott_E_System/index.html#real-time-simulation",
+    "title": "8  Sprott E System",
+    "section": "8.2 Real-time simulation",
+    "text": "8.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Sprott E System</span>"
+    ]
+  },
+  {
+    "objectID": "09_Sprott_F_System/index.html",
+    "href": "09_Sprott_F_System/index.html",
+    "title": "9  Sprott F System",
+    "section": "",
+    "text": "9.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& -y+z \\\\\n\\dot{y} &=& x+ay \\\\\n\\dot{z} &=& x^2-z\n\\end{eqnarray}\n\\]\nwith \\(a=0.5\\) and initial condition \\((-1,2,3)\\).\nAn animation of the pre-computed solution trajectory for the given chaotic system is presented below. The trajectory, spanning 103 seconds, is colored according to the calculated local Lyapunov exponents at each point in time.\nA left-to-right 360o view of the chaotic system trajectory\nThe colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Sprott F System</span>"
+    ]
+  },
+  {
+    "objectID": "09_Sprott_F_System/index.html#real-time-simulation",
+    "href": "09_Sprott_F_System/index.html#real-time-simulation",
+    "title": "9  Sprott F System",
+    "section": "9.2 Real-time simulation",
+    "text": "9.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end time as indicated below. As the simulation progresses, the 3D view of trajectory evolution can be explored by click-drag & scroll options in the mouse/touchpad.\nThe visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Sprott F System</span>"
+    ]
+  },
+  {
+    "objectID": "10_Sprott_G_System/index.html",
+    "href": "10_Sprott_G_System/index.html",
+    "title": "10  Sprott G System",
+    "section": "",
+    "text": "10.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& ax-z \\\\\n\\dot{y} &=& xz-y\\\\\n\\dot{z} &=& x+y\n\\end{eqnarray}\n\\]\nwith \\(a=0.4\\) and initial condition \\((-1,0,2)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Sprott G System</span>"
+    ]
+  },
+  {
+    "objectID": "10_Sprott_G_System/index.html#system-description",
+    "href": "10_Sprott_G_System/index.html#system-description",
+    "title": "10  Sprott G System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Sprott G System</span>"
+    ]
+  },
+  {
+    "objectID": "10_Sprott_G_System/index.html#real-time-simulation",
+    "href": "10_Sprott_G_System/index.html#real-time-simulation",
+    "title": "10  Sprott G System",
+    "section": "10.2 Real-time simulation",
+    "text": "10.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Sprott G System</span>"
+    ]
+  },
+  {
+    "objectID": "11_Sprott_H_System/index.html",
+    "href": "11_Sprott_H_System/index.html",
+    "title": "11  Sprott H System",
+    "section": "",
+    "text": "11.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& y+z^2\\\\\n\\dot{y} &=& -x+ay\\\\\n\\dot{z} &=& x-z\n\\end{eqnarray}\n\\]\nwith \\(a=0.5\\) and initial condition \\((1,-2,1)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Sprott H System</span>"
+    ]
+  },
+  {
+    "objectID": "11_Sprott_H_System/index.html#system-description",
+    "href": "11_Sprott_H_System/index.html#system-description",
+    "title": "11  Sprott H System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Sprott H System</span>"
+    ]
+  },
+  {
+    "objectID": "11_Sprott_H_System/index.html#real-time-simulation",
+    "href": "11_Sprott_H_System/index.html#real-time-simulation",
+    "title": "11  Sprott H System",
+    "section": "11.2 Real-time simulation",
+    "text": "11.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Sprott H System</span>"
+    ]
+  },
+  {
+    "objectID": "12_Sprott_I_System/index.html",
+    "href": "12_Sprott_I_System/index.html",
+    "title": "12  Sprott I System",
+    "section": "",
+    "text": "12.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& -y\\\\\n\\dot{y} &=& x+az\\\\\n\\dot{z} &=& x+y^2-z\n\\end{eqnarray}\n\\]\nwith \\(a=0.84\\) and initial condition \\((-8,2,4)\\).\nAn animation of the pre-computed solution trajectory for the given chaotic system is presented below. The trajectory, spanning 103 seconds, is colored according to the calculated local Lyapunov exponents at each point in time.\nA left-to-right 360o view of the chaotic system trajectory\nThe colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Sprott I System</span>"
+    ]
+  },
+  {
+    "objectID": "12_Sprott_I_System/index.html#real-time-simulation",
+    "href": "12_Sprott_I_System/index.html#real-time-simulation",
+    "title": "12  Sprott I System",
+    "section": "12.2 Real-time simulation",
+    "text": "12.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end time as indicated below. As the simulation progresses, the 3D view of trajectory evolution can be explored by click-drag & scroll options in the mouse/touchpad.\nThe visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Sprott I System</span>"
+    ]
+  },
+  {
+    "objectID": "13_Sprott_J_System/index.html",
+    "href": "13_Sprott_J_System/index.html",
+    "title": "13  Sprott J System",
+    "section": "",
+    "text": "13.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& z\\\\\n\\dot{y} &=& -y+z\\\\\n\\dot{z} &=& -x+ay+y^2\n\\end{eqnarray}\n\\]\nwith \\(a=0.48\\) and initial condition \\((4,1,0)\\).\nAn animation of the pre-computed solution trajectory for the given chaotic system is presented below. The trajectory, spanning 103 seconds, is colored according to the calculated local Lyapunov exponents at each point in time.\nA left-to-right 360o view of the chaotic system trajectory\nThe colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Sprott J System</span>"
+    ]
+  },
+  {
+    "objectID": "13_Sprott_J_System/index.html#real-time-simulation",
+    "href": "13_Sprott_J_System/index.html#real-time-simulation",
+    "title": "13  Sprott J System",
+    "section": "13.2 Real-time simulation",
+    "text": "13.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end time as indicated below. As the simulation progresses, the 3D view of trajectory evolution can be explored by click-drag & scroll options in the mouse/touchpad.\nThe visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Sprott J System</span>"
+    ]
+  },
+  {
+    "objectID": "14_Sprott_K_System/index.html",
+    "href": "14_Sprott_K_System/index.html",
+    "title": "14  Sprott K System",
+    "section": "",
+    "text": "14.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& xy+z\\\\\n\\dot{y} &=& x-y\\\\\n\\dot{z} &=& -x+az\n\\end{eqnarray}\n\\]\nwith \\(a=0.3\\) and initial condition \\((-1,-1,0)\\).\nAn animation of the pre-computed solution trajectory for the given chaotic system is presented below. The trajectory, spanning 103 seconds, is colored according to the calculated local Lyapunov exponents at each point in time.\nA left-to-right 360o view of the chaotic system trajectory\nThe colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Sprott K System</span>"
+    ]
+  },
+  {
+    "objectID": "14_Sprott_K_System/index.html#real-time-simulation",
+    "href": "14_Sprott_K_System/index.html#real-time-simulation",
+    "title": "14  Sprott K System",
+    "section": "14.2 Real-time simulation",
+    "text": "14.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end time as indicated below. As the simulation progresses, the 3D view of trajectory evolution can be explored by click-drag & scroll options in the mouse/touchpad.\nThe visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Sprott K System</span>"
+    ]
+  },
+  {
+    "objectID": "15_Sprott_L_System/index.html",
+    "href": "15_Sprott_L_System/index.html",
+    "title": "15  Sprott L System",
+    "section": "",
+    "text": "15.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& y+z\\\\\n\\dot{y} &=& ax^2-y\\\\\n\\dot{z} &=& 1-x\n\\end{eqnarray}\n\\]\nwith \\(a=0.24\\) and initial condition \\((-6,4,-8)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Sprott L System</span>"
+    ]
+  },
+  {
+    "objectID": "15_Sprott_L_System/index.html#system-description",
+    "href": "15_Sprott_L_System/index.html#system-description",
+    "title": "15  Sprott L System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Sprott L System</span>"
+    ]
+  },
+  {
+    "objectID": "15_Sprott_L_System/index.html#real-time-simulation",
+    "href": "15_Sprott_L_System/index.html#real-time-simulation",
+    "title": "15  Sprott L System",
+    "section": "15.2 Real-time simulation",
+    "text": "15.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Sprott L System</span>"
+    ]
+  },
+  {
+    "objectID": "16_Sprott_M_System/index.html",
+    "href": "16_Sprott_M_System/index.html",
+    "title": "16  Sprott M System",
+    "section": "",
+    "text": "16.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& az\\\\\n\\dot{y} &=& x^2-y\\\\\n\\dot{z} &=& 1+x-y\n\\end{eqnarray}\n\\]\nwith \\(a=-8\\) and initial condition \\((-1,2,0)\\).\nAn animation of the pre-computed solution trajectory for the given chaotic system is presented below. The trajectory, spanning 103 seconds, is colored according to the calculated local Lyapunov exponents at each point in time.\nA left-to-right 360o view of the chaotic system trajectory\nThe colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Sprott M System</span>"
+    ]
+  },
+  {
+    "objectID": "16_Sprott_M_System/index.html#real-time-simulation",
+    "href": "16_Sprott_M_System/index.html#real-time-simulation",
+    "title": "16  Sprott M System",
+    "section": "16.2 Real-time simulation",
+    "text": "16.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end time as indicated below. As the simulation progresses, the 3D view of trajectory evolution can be explored by click-drag & scroll options in the mouse/touchpad.\nThe visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Sprott M System</span>"
+    ]
+  },
+  {
+    "objectID": "17_Sprott_N_System/index.html",
+    "href": "17_Sprott_N_System/index.html",
+    "title": "17  Sprott N System",
+    "section": "",
+    "text": "17.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& y\\\\\n\\dot{y} &=& -x+z^2\\\\\n\\dot{z} &=& 1+ay-z\n\\end{eqnarray}\n\\]\nwith \\(a=0.24\\) and initial condition \\((28,-42,-2)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Sprott N System</span>"
+    ]
+  },
+  {
+    "objectID": "17_Sprott_N_System/index.html#system-description",
+    "href": "17_Sprott_N_System/index.html#system-description",
+    "title": "17  Sprott N System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Sprott N System</span>"
+    ]
+  },
+  {
+    "objectID": "17_Sprott_N_System/index.html#real-time-simulation",
+    "href": "17_Sprott_N_System/index.html#real-time-simulation",
+    "title": "17  Sprott N System",
+    "section": "17.2 Real-time simulation",
+    "text": "17.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Sprott N System</span>"
+    ]
+  },
+  {
+    "objectID": "18_Sprott_O_System/index.html",
+    "href": "18_Sprott_O_System/index.html",
+    "title": "18  Sprott O System",
+    "section": "",
+    "text": "18.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& y\\\\\n\\dot{y} &=& -x+z\\\\\n\\dot{z} &=& x+xz+ay\n\\end{eqnarray}\n\\]\nwith \\(a=0.3\\) and initial condition \\((-2,0,-1)\\).\nAn animation of the pre-computed solution trajectory for the given chaotic system is presented below. The trajectory, spanning 103 seconds, is colored according to the calculated local Lyapunov exponents at each point in time.\nA left-to-right 360o view of the chaotic system trajectory\nThe colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Sprott O System</span>"
+    ]
+  },
+  {
+    "objectID": "18_Sprott_O_System/index.html#real-time-simulation",
+    "href": "18_Sprott_O_System/index.html#real-time-simulation",
+    "title": "18  Sprott O System",
+    "section": "18.2 Real-time simulation",
+    "text": "18.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end time as indicated below. As the simulation progresses, the 3D view of trajectory evolution can be explored by click-drag & scroll options in the mouse/touchpad.\nThe visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Sprott O System</span>"
+    ]
+  },
+  {
+    "objectID": "19_Sprott_P_System/index.html",
+    "href": "19_Sprott_P_System/index.html",
+    "title": "19  Sprott P System",
+    "section": "",
+    "text": "19.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& ay+z\\\\\n\\dot{y} &=& -x+y^2\\\\\n\\dot{z} &=& x+y\n\\end{eqnarray}\n\\]\nwith \\(a=2.7\\) and initial condition \\((1,1,-1)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Sprott P System</span>"
+    ]
+  },
+  {
+    "objectID": "19_Sprott_P_System/index.html#system-description",
+    "href": "19_Sprott_P_System/index.html#system-description",
+    "title": "19  Sprott P System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Sprott P System</span>"
+    ]
+  },
+  {
+    "objectID": "19_Sprott_P_System/index.html#real-time-simulation",
+    "href": "19_Sprott_P_System/index.html#real-time-simulation",
+    "title": "19  Sprott P System",
+    "section": "19.2 Real-time simulation",
+    "text": "19.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Sprott P System</span>"
+    ]
+  },
+  {
+    "objectID": "20_Sprott_Q_System/index.html",
+    "href": "20_Sprott_Q_System/index.html",
+    "title": "20  Sprott Q System",
+    "section": "",
+    "text": "20.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& -z\\\\\n\\dot{y} &=& x+ay\\\\\n\\dot{z} &=& x+y^2+bz\n\\end{eqnarray}\n\\]\nwith \\(a=-0.5,b=0.28\\) and initial condition \\((0,1,0)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Sprott Q System</span>"
+    ]
+  },
+  {
+    "objectID": "20_Sprott_Q_System/index.html#system-description",
+    "href": "20_Sprott_Q_System/index.html#system-description",
+    "title": "20  Sprott Q System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Sprott Q System</span>"
+    ]
+  },
+  {
+    "objectID": "20_Sprott_Q_System/index.html#real-time-simulation",
+    "href": "20_Sprott_Q_System/index.html#real-time-simulation",
+    "title": "20  Sprott Q System",
+    "section": "20.2 Real-time simulation",
+    "text": "20.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Sprott Q System</span>"
+    ]
+  },
+  {
+    "objectID": "21_Sprott_R_System/index.html",
+    "href": "21_Sprott_R_System/index.html",
+    "title": "21  Sprott R System",
+    "section": "",
+    "text": "21.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& 1+ay\\\\\n\\dot{y} &=& 1+z\\\\\n\\dot{z} &=& xy-z\n\\end{eqnarray}\n\\]\nwith \\(a=-0.52\\) and initial condition \\((-1,-3,3)\\).\nAn animation of the pre-computed solution trajectory for the given chaotic system is presented below. The trajectory, spanning 103 seconds, is colored according to the calculated local Lyapunov exponents at each point in time.\nA left-to-right 360o view of the chaotic system trajectory\nThe colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Sprott R System</span>"
+    ]
+  },
+  {
+    "objectID": "21_Sprott_R_System/index.html#real-time-simulation",
+    "href": "21_Sprott_R_System/index.html#real-time-simulation",
+    "title": "21  Sprott R System",
+    "section": "21.2 Real-time simulation",
+    "text": "21.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end time as indicated below. As the simulation progresses, the 3D view of trajectory evolution can be explored by click-drag & scroll options in the mouse/touchpad.\nThe visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Sprott R System</span>"
+    ]
+  },
+  {
+    "objectID": "22_Sprott_S_System/index.html",
+    "href": "22_Sprott_S_System/index.html",
+    "title": "22  Sprott S System",
+    "section": "",
+    "text": "22.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& -x+ay\\\\\n\\dot{y} &=& x+z^2\\\\\n\\dot{z} &=& 1+x\n\\end{eqnarray}\n\\]\nwith \\(a=-5\\) and initial condition \\((-1,0,-1)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Sprott S System</span>"
+    ]
+  },
+  {
+    "objectID": "22_Sprott_S_System/index.html#system-description",
+    "href": "22_Sprott_S_System/index.html#system-description",
+    "title": "22  Sprott S System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Sprott S System</span>"
+    ]
+  },
+  {
+    "objectID": "22_Sprott_S_System/index.html#real-time-simulation",
+    "href": "22_Sprott_S_System/index.html#real-time-simulation",
+    "title": "22  Sprott S System",
+    "section": "22.2 Real-time simulation",
+    "text": "22.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Sprott S System</span>"
+    ]
+  },
+  {
+    "objectID": "23_Rossler_Prototype-4_System/index.html",
+    "href": "23_Rossler_Prototype-4_System/index.html",
+    "title": "23  Rössler Prototype-4 System",
+    "section": "",
+    "text": "23.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& y+z\\\\\n\\dot{y} &=& ax\\\\\n\\dot{z} &=& y+y^2-z\n\\end{eqnarray}\n\\]\nwith \\(a=-4\\) and initial condition \\((0,-1,0)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Rössler Prototype-4 System</span>"
+    ]
+  },
+  {
+    "objectID": "23_Rossler_Prototype-4_System/index.html#system-description",
+    "href": "23_Rossler_Prototype-4_System/index.html#system-description",
+    "title": "23  Rössler Prototype-4 System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Rössler Prototype-4 System</span>"
+    ]
+  },
+  {
+    "objectID": "23_Rossler_Prototype-4_System/index.html#real-time-simulation",
+    "href": "23_Rossler_Prototype-4_System/index.html#real-time-simulation",
+    "title": "23  Rössler Prototype-4 System",
+    "section": "23.2 Real-time simulation",
+    "text": "23.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Rössler Prototype-4 System</span>"
+    ]
+  },
+  {
+    "objectID": "24_Simplest_Chaotic_System/index.html",
+    "href": "24_Simplest_Chaotic_System/index.html",
+    "title": "24  Simplest Chaotic System",
+    "section": "",
+    "text": "24.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& y\\\\\n\\dot{y} &=& z\\\\\n\\dot{z} &=& az+y^2-x\n\\end{eqnarray}\n\\]\nwith \\(a=-2.02\\) and initial condition \\((-1,0,0)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Simplest Chaotic System</span>"
+    ]
+  },
+  {
+    "objectID": "24_Simplest_Chaotic_System/index.html#system-description",
+    "href": "24_Simplest_Chaotic_System/index.html#system-description",
+    "title": "24  Simplest Chaotic System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Simplest Chaotic System</span>"
+    ]
+  },
+  {
+    "objectID": "24_Simplest_Chaotic_System/index.html#real-time-simulation",
+    "href": "24_Simplest_Chaotic_System/index.html#real-time-simulation",
+    "title": "24  Simplest Chaotic System",
+    "section": "24.2 Real-time simulation",
+    "text": "24.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Simplest Chaotic System</span>"
+    ]
+  },
+  {
+    "objectID": "25_Malasoma_System/index.html",
+    "href": "25_Malasoma_System/index.html",
+    "title": "25  Malasoma System",
+    "section": "",
+    "text": "25.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& y\\\\\n\\dot{y} &=& z\\\\\n\\dot{z} &=& az+xy^2-x\n\\end{eqnarray}\n\\]\nwith \\(a=-2.03\\) and initial condition \\((-4,0,3)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Malasoma System</span>"
+    ]
+  },
+  {
+    "objectID": "25_Malasoma_System/index.html#system-description",
+    "href": "25_Malasoma_System/index.html#system-description",
+    "title": "25  Malasoma System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Malasoma System</span>"
+    ]
+  },
+  {
+    "objectID": "25_Malasoma_System/index.html#real-time-simulation",
+    "href": "25_Malasoma_System/index.html#real-time-simulation",
+    "title": "25  Malasoma System",
+    "section": "25.2 Real-time simulation",
+    "text": "25.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Malasoma System</span>"
+    ]
+  },
+  {
+    "objectID": "26_Moore-Spiegel_System/index.html",
+    "href": "26_Moore-Spiegel_System/index.html",
+    "title": "26  Moore-Spiegel System",
+    "section": "",
+    "text": "26.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& y\\\\\n\\dot{y} &=& z\\\\\n\\dot{z} &=& az+by-x^2y-x\n\\end{eqnarray}\n\\]\nwith \\(a=-0.2,b=9\\) and initial condition \\((-1,-4,9)\\).\nAn animation of the pre-computed solution trajectory for the given chaotic system is presented below. The trajectory, spanning 103 seconds, is colored according to the calculated local Lyapunov exponents at each point in time.\nA left-to-right 360o view of the chaotic system trajectory\nThe colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Moore-Spiegel System</span>"
+    ]
+  },
+  {
+    "objectID": "26_Moore-Spiegel_System/index.html#real-time-simulation",
+    "href": "26_Moore-Spiegel_System/index.html#real-time-simulation",
+    "title": "26  Moore-Spiegel System",
+    "section": "26.2 Real-time simulation",
+    "text": "26.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end time as indicated below. As the simulation progresses, the 3D view of trajectory evolution can be explored by click-drag & scroll options in the mouse/touchpad.\nThe visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Moore-Spiegel System</span>"
+    ]
+  },
+  {
+    "objectID": "27_Linz-Sprott_System/index.html",
+    "href": "27_Linz-Sprott_System/index.html",
+    "title": "27  Linz-Sprott System",
+    "section": "",
+    "text": "27.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& y\\\\\n\\dot{y} &=& z\\\\\n\\dot{z} &=& az-y-|x|+1\n\\end{eqnarray}\n\\]\nwith \\(a=-0.6\\) and initial condition \\((-1,1,0)\\).\nAn animation of the pre-computed solution trajectory for the given chaotic system is presented below. The trajectory, spanning 103 seconds, is colored according to the calculated local Lyapunov exponents at each point in time.\nA left-to-right 360o view of the chaotic system trajectory\nThe colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Linz-Sprott System</span>"
+    ]
+  },
+  {
+    "objectID": "27_Linz-Sprott_System/index.html#real-time-simulation",
+    "href": "27_Linz-Sprott_System/index.html#real-time-simulation",
+    "title": "27  Linz-Sprott System",
+    "section": "27.2 Real-time simulation",
+    "text": "27.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end time as indicated below. As the simulation progresses, the 3D view of trajectory evolution can be explored by click-drag & scroll options in the mouse/touchpad.\nThe visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Linz-Sprott System</span>"
+    ]
+  },
+  {
+    "objectID": "28_Elwakil-Kennedy_System/index.html",
+    "href": "28_Elwakil-Kennedy_System/index.html",
+    "title": "28  Elwakil-Kennedy System",
+    "section": "",
+    "text": "28.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& y\\\\\n\\dot{y} &=& z\\\\\n\\dot{z} &=& -z-y+ax+sgn(x)\n\\end{eqnarray}\n\\]\nwith \\(a=-2\\) and initial condition \\((-1,1,0)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Elwakil-Kennedy System</span>"
+    ]
+  },
+  {
+    "objectID": "28_Elwakil-Kennedy_System/index.html#system-description",
+    "href": "28_Elwakil-Kennedy_System/index.html#system-description",
+    "title": "28  Elwakil-Kennedy System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Elwakil-Kennedy System</span>"
+    ]
+  },
+  {
+    "objectID": "28_Elwakil-Kennedy_System/index.html#real-time-simulation",
+    "href": "28_Elwakil-Kennedy_System/index.html#real-time-simulation",
+    "title": "28  Elwakil-Kennedy System",
+    "section": "28.2 Real-time simulation",
+    "text": "28.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Elwakil-Kennedy System</span>"
+    ]
+  },
+  {
+    "objectID": "29_Chua_System/index.html",
+    "href": "29_Chua_System/index.html",
+    "title": "29  Chua System",
+    "section": "",
+    "text": "29.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& y-x+(|x+1|-|x-1|)\\\\\n\\dot{y} &=& x+z\\\\\n\\dot{z} &=& ay\n\\end{eqnarray}\n\\]\nwith \\(a=-3.5\\) and initial condition \\((3,1,-7)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Chua System</span>"
+    ]
+  },
+  {
+    "objectID": "29_Chua_System/index.html#system-description",
+    "href": "29_Chua_System/index.html#system-description",
+    "title": "29  Chua System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Chua System</span>"
+    ]
+  },
+  {
+    "objectID": "29_Chua_System/index.html#real-time-simulation",
+    "href": "29_Chua_System/index.html#real-time-simulation",
+    "title": "29  Chua System",
+    "section": "29.2 Real-time simulation",
+    "text": "29.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Chua System</span>"
+    ]
+  },
+  {
+    "objectID": "30_Chen_System/index.html",
+    "href": "30_Chen_System/index.html",
+    "title": "30  Chen System",
+    "section": "",
+    "text": "30.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& y-x\\\\\n\\dot{y} &=& ax-xz+by\\\\\n\\dot{z} &=& xy+cz\n\\end{eqnarray}\n\\]\nwith \\(a=-0.3,b=0.7,c=-0.1\\) and initial condition \\((-2,-3,0)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Chen System</span>"
+    ]
+  },
+  {
+    "objectID": "30_Chen_System/index.html#system-description",
+    "href": "30_Chen_System/index.html#system-description",
+    "title": "30  Chen System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Chen System</span>"
+    ]
+  },
+  {
+    "objectID": "30_Chen_System/index.html#real-time-simulation",
+    "href": "30_Chen_System/index.html#real-time-simulation",
+    "title": "30  Chen System",
+    "section": "30.2 Real-time simulation",
+    "text": "30.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Chen System</span>"
+    ]
+  },
+  {
+    "objectID": "31_Halvorsen_System/index.html",
+    "href": "31_Halvorsen_System/index.html",
+    "title": "31  Halvorsen System",
+    "section": "",
+    "text": "31.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& ax-y-z-y^2\\\\\n\\dot{y} &=& ay-z-x-z^2\\\\\n\\dot{z} &=& az-x-y-x^2\n\\end{eqnarray}\n\\]\nwith \\(a=-0.32\\) and initial condition \\((-2,0,0)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Halvorsen System</span>"
+    ]
+  },
+  {
+    "objectID": "31_Halvorsen_System/index.html#system-description",
+    "href": "31_Halvorsen_System/index.html#system-description",
+    "title": "31  Halvorsen System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Halvorsen System</span>"
+    ]
+  },
+  {
+    "objectID": "31_Halvorsen_System/index.html#real-time-simulation",
+    "href": "31_Halvorsen_System/index.html#real-time-simulation",
+    "title": "31  Halvorsen System",
+    "section": "31.2 Real-time simulation",
+    "text": "31.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Halvorsen System</span>"
+    ]
+  },
+  {
+    "objectID": "32_Thomas_System/index.html",
+    "href": "32_Thomas_System/index.html",
+    "title": "32  Thomas System",
+    "section": "",
+    "text": "32.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& ax+sin(y)\\\\\n\\dot{y} &=& ay+sin(z)\\\\\n\\dot{z} &=& az+sin(x)\n\\end{eqnarray}\n\\]\nwith \\(a=-0.1\\) and initial condition \\((-1,-2,2)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Thomas System</span>"
+    ]
+  },
+  {
+    "objectID": "32_Thomas_System/index.html#system-description",
+    "href": "32_Thomas_System/index.html#system-description",
+    "title": "32  Thomas System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Thomas System</span>"
+    ]
+  },
+  {
+    "objectID": "32_Thomas_System/index.html#real-time-simulation",
+    "href": "32_Thomas_System/index.html#real-time-simulation",
+    "title": "32  Thomas System",
+    "section": "32.2 Real-time simulation",
+    "text": "32.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Thomas System</span>"
+    ]
+  },
+  {
+    "objectID": "33_Rabinovich-Fabrikant_System/index.html",
+    "href": "33_Rabinovich-Fabrikant_System/index.html",
+    "title": "33  Rabinovich-Fabrikant System",
+    "section": "",
+    "text": "33.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& yz-y+ax^2y+x\\\\\n\\dot{y} &=& xz+x-x^3+by\\\\\n\\dot{z} &=& -z-xyz\n\\end{eqnarray}\n\\]\nwith \\(a=0.6,b=0.07\\) and initial condition \\((2,-1,1)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Rabinovich-Fabrikant System</span>"
+    ]
+  },
+  {
+    "objectID": "33_Rabinovich-Fabrikant_System/index.html#system-description",
+    "href": "33_Rabinovich-Fabrikant_System/index.html#system-description",
+    "title": "33  Rabinovich-Fabrikant System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Rabinovich-Fabrikant System</span>"
+    ]
+  },
+  {
+    "objectID": "33_Rabinovich-Fabrikant_System/index.html#real-time-simulation",
+    "href": "33_Rabinovich-Fabrikant_System/index.html#real-time-simulation",
+    "title": "33  Rabinovich-Fabrikant System",
+    "section": "33.2 Real-time simulation",
+    "text": "33.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Rabinovich-Fabrikant System</span>"
+    ]
+  },
+  {
+    "objectID": "34_Leipnik-Newton_System/index.html",
+    "href": "34_Leipnik-Newton_System/index.html",
+    "title": "34  Leipnik-Newton System",
+    "section": "",
+    "text": "34.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& -x+y+yz\\\\\n\\dot{y} &=& ax-y+xy\\\\\n\\dot{z} &=& z-xy\n\\end{eqnarray}\n\\]\nwith \\(a=-32\\) and initial condition \\((-1,5,-2)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Leipnik-Newton System</span>"
+    ]
+  },
+  {
+    "objectID": "34_Leipnik-Newton_System/index.html#system-description",
+    "href": "34_Leipnik-Newton_System/index.html#system-description",
+    "title": "34  Leipnik-Newton System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Leipnik-Newton System</span>"
+    ]
+  },
+  {
+    "objectID": "34_Leipnik-Newton_System/index.html#real-time-simulation",
+    "href": "34_Leipnik-Newton_System/index.html#real-time-simulation",
+    "title": "34  Leipnik-Newton System",
+    "section": "34.2 Real-time simulation",
+    "text": "34.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Leipnik-Newton System</span>"
+    ]
+  },
+  {
+    "objectID": "35_Arneodo-Coullet-Tresser_System/index.html",
+    "href": "35_Arneodo-Coullet-Tresser_System/index.html",
+    "title": "35  Arnéodo-Coullet-Tresser System",
+    "section": "",
+    "text": "35.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& ax-y\\\\\n\\dot{y} &=& -y+xz+x^3\\\\\n\\dot{z} &=& -bz+xy-z^2\n\\end{eqnarray}\n\\]\nwith \\(a=0.58,b=0.2\\) and initial condition \\((-2,-1,0)\\).\nAn animation of the pre-computed solution trajectory for the given chaotic system is presented below. The trajectory, spanning 103 seconds, is colored according to the calculated local Lyapunov exponents at each point in time.\nA left-to-right 360o view of the chaotic system trajectory\nThe colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Arnéodo-Coullet-Tresser System</span>"
+    ]
+  },
+  {
+    "objectID": "35_Arneodo-Coullet-Tresser_System/index.html#real-time-simulation",
+    "href": "35_Arneodo-Coullet-Tresser_System/index.html#real-time-simulation",
+    "title": "35  Arnéodo-Coullet-Tresser System",
+    "section": "35.2 Real-time simulation",
+    "text": "35.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end time as indicated below. As the simulation progresses, the 3D view of trajectory evolution can be explored by click-drag & scroll options in the mouse/touchpad.\nThe visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Arnéodo-Coullet-Tresser System</span>"
+    ]
+  },
+  {
+    "objectID": "36_Lorenz-84_System/index.html",
+    "href": "36_Lorenz-84_System/index.html",
+    "title": "36  Lorenz-84 System",
+    "section": "",
+    "text": "36.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& -y^2-z^2-x+1\\\\\n\\dot{y} &=& y-xz+ay+1\\\\\n\\dot{z} &=& xy+xz-z\n\\end{eqnarray}\n\\]\nwith \\(a=-0.1\\) and initial condition \\((-5,-1,-2)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>36</span>  <span class='chapter-title'>Lorenz-84 System</span>"
+    ]
+  },
+  {
+    "objectID": "36_Lorenz-84_System/index.html#system-description",
+    "href": "36_Lorenz-84_System/index.html#system-description",
+    "title": "36  Lorenz-84 System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>36</span>  <span class='chapter-title'>Lorenz-84 System</span>"
+    ]
+  },
+  {
+    "objectID": "36_Lorenz-84_System/index.html#real-time-simulation",
+    "href": "36_Lorenz-84_System/index.html#real-time-simulation",
+    "title": "36  Lorenz-84 System",
+    "section": "36.2 Real-time simulation",
+    "text": "36.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>36</span>  <span class='chapter-title'>Lorenz-84 System</span>"
+    ]
+  },
+  {
+    "objectID": "37_Wei_System/index.html",
+    "href": "37_Wei_System/index.html",
+    "title": "37  Wei System",
+    "section": "",
+    "text": "37.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& -y\\\\\n\\dot{y} &=& x+z\\\\\n\\dot{z} &=& axz+y^2-1\n\\end{eqnarray}\n\\]\nwith \\(a=0.6\\) and initial condition \\((-3,-1,0)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>Wei System</span>"
+    ]
+  },
+  {
+    "objectID": "37_Wei_System/index.html#system-description",
+    "href": "37_Wei_System/index.html#system-description",
+    "title": "37  Wei System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>Wei System</span>"
+    ]
+  },
+  {
+    "objectID": "37_Wei_System/index.html#real-time-simulation",
+    "href": "37_Wei_System/index.html#real-time-simulation",
+    "title": "37  Wei System",
+    "section": "37.2 Real-time simulation",
+    "text": "37.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>Wei System</span>"
+    ]
+  },
+  {
+    "objectID": "38_Wang-Chen_System/index.html",
+    "href": "38_Wang-Chen_System/index.html",
+    "title": "38  Wang-Chen System",
+    "section": "",
+    "text": "38.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& yz+a\\\\\n\\dot{y} &=& x^2+by\\\\\n\\dot{z} &=& 1-x\n\\end{eqnarray}\n\\]\nwith \\(a=0.1,b=-2\\) and initial condition \\((-3,8,1)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>38</span>  <span class='chapter-title'>Wang-Chen System</span>"
+    ]
+  },
+  {
+    "objectID": "38_Wang-Chen_System/index.html#system-description",
+    "href": "38_Wang-Chen_System/index.html#system-description",
+    "title": "38  Wang-Chen System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>38</span>  <span class='chapter-title'>Wang-Chen System</span>"
+    ]
+  },
+  {
+    "objectID": "38_Wang-Chen_System/index.html#real-time-simulation",
+    "href": "38_Wang-Chen_System/index.html#real-time-simulation",
+    "title": "38  Wang-Chen System",
+    "section": "38.2 Real-time simulation",
+    "text": "38.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>38</span>  <span class='chapter-title'>Wang-Chen System</span>"
+    ]
+  },
+  {
+    "objectID": "39_Reflection_Symmetric_System/index.html",
+    "href": "39_Reflection_Symmetric_System/index.html",
+    "title": "39  Reflection Symmetric System",
+    "section": "",
+    "text": "39.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& x+xy\\\\\n\\dot{y} &=& -z\\\\\n\\dot{z} &=& y+az+x^2\n\\end{eqnarray}\n\\]\nwith \\(a=-0.2\\) and initial condition \\((1,-13,32)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>39</span>  <span class='chapter-title'>Reflection Symmetric System</span>"
+    ]
+  },
+  {
+    "objectID": "39_Reflection_Symmetric_System/index.html#system-description",
+    "href": "39_Reflection_Symmetric_System/index.html#system-description",
+    "title": "39  Reflection Symmetric System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>39</span>  <span class='chapter-title'>Reflection Symmetric System</span>"
+    ]
+  },
+  {
+    "objectID": "39_Reflection_Symmetric_System/index.html#real-time-simulation",
+    "href": "39_Reflection_Symmetric_System/index.html#real-time-simulation",
+    "title": "39  Reflection Symmetric System",
+    "section": "39.2 Real-time simulation",
+    "text": "39.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>39</span>  <span class='chapter-title'>Reflection Symmetric System</span>"
+    ]
+  },
+  {
+    "objectID": "40_Butterfly_System/index.html",
+    "href": "40_Butterfly_System/index.html",
+    "title": "40  Butterfly System",
+    "section": "",
+    "text": "40.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& y+yz\\\\\n\\dot{y} &=& -xz+yz\\\\\n\\dot{z} &=& az-xy+1\n\\end{eqnarray}\n\\]\nwith \\(a=-0.5\\) and initial condition \\((2,1,1)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>40</span>  <span class='chapter-title'>Butterfly System</span>"
+    ]
+  },
+  {
+    "objectID": "40_Butterfly_System/index.html#system-description",
+    "href": "40_Butterfly_System/index.html#system-description",
+    "title": "40  Butterfly System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>40</span>  <span class='chapter-title'>Butterfly System</span>"
+    ]
+  },
+  {
+    "objectID": "40_Butterfly_System/index.html#real-time-simulation",
+    "href": "40_Butterfly_System/index.html#real-time-simulation",
+    "title": "40  Butterfly System",
+    "section": "40.2 Real-time simulation",
+    "text": "40.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>40</span>  <span class='chapter-title'>Butterfly System</span>"
+    ]
+  },
+  {
+    "objectID": "41_Line_Equilibrium_System/index.html",
+    "href": "41_Line_Equilibrium_System/index.html",
+    "title": "41  Line Equilibrium System",
+    "section": "",
+    "text": "41.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& y\\\\\n\\dot{y} &=& -x+yz\\\\\n\\dot{z} &=& ax-xy+bxz\n\\end{eqnarray}\n\\]\nwith \\(a=0.3,b=0.1\\) and initial condition \\((2,3,-1)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>41</span>  <span class='chapter-title'>Line Equilibrium System</span>"
+    ]
+  },
+  {
+    "objectID": "41_Line_Equilibrium_System/index.html#system-description",
+    "href": "41_Line_Equilibrium_System/index.html#system-description",
+    "title": "41  Line Equilibrium System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>41</span>  <span class='chapter-title'>Line Equilibrium System</span>"
+    ]
+  },
+  {
+    "objectID": "41_Line_Equilibrium_System/index.html#real-time-simulation",
+    "href": "41_Line_Equilibrium_System/index.html#real-time-simulation",
+    "title": "41  Line Equilibrium System",
+    "section": "41.2 Real-time simulation",
+    "text": "41.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>41</span>  <span class='chapter-title'>Line Equilibrium System</span>"
+    ]
+  },
+  {
+    "objectID": "42_Mostly_Quadratic_System/index.html",
+    "href": "42_Mostly_Quadratic_System/index.html",
+    "title": "42  Mostly Quadratic System",
+    "section": "",
+    "text": "42.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& 1+yz\\\\\n\\dot{y} &=& -xz\\\\\n\\dot{z} &=& y^2+ayz\n\\end{eqnarray}\n\\]\nwith \\(a=2\\) and initial condition \\((1,-1,4)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>42</span>  <span class='chapter-title'>Mostly Quadratic System</span>"
+    ]
+  },
+  {
+    "objectID": "42_Mostly_Quadratic_System/index.html#system-description",
+    "href": "42_Mostly_Quadratic_System/index.html#system-description",
+    "title": "42  Mostly Quadratic System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>42</span>  <span class='chapter-title'>Mostly Quadratic System</span>"
+    ]
+  },
+  {
+    "objectID": "42_Mostly_Quadratic_System/index.html#real-time-simulation",
+    "href": "42_Mostly_Quadratic_System/index.html#real-time-simulation",
+    "title": "42  Mostly Quadratic System",
+    "section": "42.2 Real-time simulation",
+    "text": "42.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>42</span>  <span class='chapter-title'>Mostly Quadratic System</span>"
+    ]
+  },
+  {
+    "objectID": "43_Dissipative-Conservative_System/index.html",
+    "href": "43_Dissipative-Conservative_System/index.html",
+    "title": "43  Dissipative-Conservative System",
+    "section": "",
+    "text": "43.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& y+xy+xz\\\\\n\\dot{y} &=& 1-x^2+yz\\\\\n\\dot{z} &=& x+ax^2-y^2\n\\end{eqnarray}\n\\]\nwith \\(a=-0.61\\) and initial condition \\((0,-1,0)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>43</span>  <span class='chapter-title'>Dissipative-Conservative System</span>"
+    ]
+  },
+  {
+    "objectID": "43_Dissipative-Conservative_System/index.html#system-description",
+    "href": "43_Dissipative-Conservative_System/index.html#system-description",
+    "title": "43  Dissipative-Conservative System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>43</span>  <span class='chapter-title'>Dissipative-Conservative System</span>"
+    ]
+  },
+  {
+    "objectID": "43_Dissipative-Conservative_System/index.html#real-time-simulation",
+    "href": "43_Dissipative-Conservative_System/index.html#real-time-simulation",
+    "title": "43  Dissipative-Conservative System",
+    "section": "43.2 Real-time simulation",
+    "text": "43.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>43</span>  <span class='chapter-title'>Dissipative-Conservative System</span>"
+    ]
+  },
+  {
+    "objectID": "44_Time-Reversible_Reflection-Invariant_System/index.html",
+    "href": "44_Time-Reversible_Reflection-Invariant_System/index.html",
+    "title": "44  Time-Reversible Reflection-Invariant System",
+    "section": "",
+    "text": "44.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& -yz\\\\\n\\dot{y} &=& axz+yz+z^3\\\\\n\\dot{z} &=& x-x^3\n\\end{eqnarray}\n\\]\nwith \\(a=2\\) and initial condition \\((-1,1,-1)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>44</span>  <span class='chapter-title'>Time-Reversible Reflection-Invariant System</span>"
+    ]
+  },
+  {
+    "objectID": "44_Time-Reversible_Reflection-Invariant_System/index.html#system-description",
+    "href": "44_Time-Reversible_Reflection-Invariant_System/index.html#system-description",
+    "title": "44  Time-Reversible Reflection-Invariant System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>44</span>  <span class='chapter-title'>Time-Reversible Reflection-Invariant System</span>"
+    ]
+  },
+  {
+    "objectID": "44_Time-Reversible_Reflection-Invariant_System/index.html#real-time-simulation",
+    "href": "44_Time-Reversible_Reflection-Invariant_System/index.html#real-time-simulation",
+    "title": "44  Time-Reversible Reflection-Invariant System",
+    "section": "44.2 Real-time simulation",
+    "text": "44.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>44</span>  <span class='chapter-title'>Time-Reversible Reflection-Invariant System</span>"
+    ]
+  },
+  {
+    "objectID": "45_Plane_Equilibrium_System/index.html",
+    "href": "45_Plane_Equilibrium_System/index.html",
+    "title": "45  Plane Equilibrium System",
+    "section": "",
+    "text": "45.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& xz\\\\\n\\dot{y} &=& axz^2-x^2y\\\\\n\\dot{z} &=& -x^2+xy\n\\end{eqnarray}\n\\]\nwith \\(a=3\\) and initial condition \\((1,2,-1)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>45</span>  <span class='chapter-title'>Plane Equilibrium System</span>"
+    ]
+  },
+  {
+    "objectID": "45_Plane_Equilibrium_System/index.html#system-description",
+    "href": "45_Plane_Equilibrium_System/index.html#system-description",
+    "title": "45  Plane Equilibrium System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>45</span>  <span class='chapter-title'>Plane Equilibrium System</span>"
+    ]
+  },
+  {
+    "objectID": "45_Plane_Equilibrium_System/index.html#real-time-simulation",
+    "href": "45_Plane_Equilibrium_System/index.html#real-time-simulation",
+    "title": "45  Plane Equilibrium System",
+    "section": "45.2 Real-time simulation",
+    "text": "45.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>45</span>  <span class='chapter-title'>Plane Equilibrium System</span>"
+    ]
+  },
+  {
+    "objectID": "46_Forced_Ueda_System/index.html",
+    "href": "46_Forced_Ueda_System/index.html",
+    "title": "46  Forced Ueda System",
+    "section": "",
+    "text": "46.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& ay\\\\\n\\dot{y} &=& -x+by+\\sin(z)\\\\\n\\dot{z} &=& 1\n\\end{eqnarray}\n\\]\nwith \\(a=5,b=0.1\\) and initial condition \\((0,1,-3)\\).",
+    "crumbs": [
+      "<span class='chapter-number'>46</span>  <span class='chapter-title'>Forced Ueda System</span>"
+    ]
+  },
+  {
+    "objectID": "46_Forced_Ueda_System/index.html#system-description",
+    "href": "46_Forced_Ueda_System/index.html#system-description",
+    "title": "46  Forced Ueda System",
+    "section": "",
+    "text": "Note\n\n\n\nThe simulation results for this system differ significantly from the trajectories reported in the book by Sprott (2023) for reasons that remain unclear. Consequently, this system has not been visualized.\n\n\n\n\n\n\nSprott, Julien Clinton. 2023. Elegant Automation: Robotic Analysis of Chaotic Systems. World Scientific.",
+    "crumbs": [
+      "<span class='chapter-number'>46</span>  <span class='chapter-title'>Forced Ueda System</span>"
+    ]
+  },
+  {
+    "objectID": "46_Forced_Ueda_System/index.html#real-time-simulation",
+    "href": "46_Forced_Ueda_System/index.html#real-time-simulation",
+    "title": "46  Forced Ueda System",
+    "section": "46.2 Real-time simulation",
+    "text": "46.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>46</span>  <span class='chapter-title'>Forced Ueda System</span>"
+    ]
+  },
+  {
+    "objectID": "47_Megastable_System/index.html",
+    "href": "47_Megastable_System/index.html",
+    "title": "47  Megastable System",
+    "section": "",
+    "text": "47.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& y\\\\\n\\dot{y} &=& ax+y\\cos(x)+\\sin(z)\n\\dot{z} &=& b\n\\end{eqnarray}\n\\]\nwith \\(a=-0.45,b=0.5\\) and initial condition \\((5,3,0)\\).",
+    "crumbs": [
+      "<span class='chapter-number'>47</span>  <span class='chapter-title'>Megastable System</span>"
+    ]
+  },
+  {
+    "objectID": "47_Megastable_System/index.html#system-description",
+    "href": "47_Megastable_System/index.html#system-description",
+    "title": "47  Megastable System",
+    "section": "",
+    "text": "Note\n\n\n\nThe simulation results for this system differ significantly from the trajectories reported in the book by Sprott (2023) for reasons that remain unclear. Consequently, this system has not been visualized.\n\n\n\n\n\n\nSprott, Julien Clinton. 2023. Elegant Automation: Robotic Analysis of Chaotic Systems. World Scientific.",
+    "crumbs": [
+      "<span class='chapter-number'>47</span>  <span class='chapter-title'>Megastable System</span>"
+    ]
+  },
+  {
+    "objectID": "48_Attracting_Torus_System/index.html",
+    "href": "48_Attracting_Torus_System/index.html",
+    "title": "48  Attracting Torus System",
+    "section": "",
+    "text": "48.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& y\\\\\n\\dot{y} &=& -x-zy\\\\\n\\dot{z} &=& y^2+a+bz\n\\end{eqnarray}\n\\]\nwith \\(a=-4,b=0.1\\) and initial condition \\((0,2,1)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>48</span>  <span class='chapter-title'>Attracting Torus System</span>"
+    ]
+  },
+  {
+    "objectID": "48_Attracting_Torus_System/index.html#system-description",
+    "href": "48_Attracting_Torus_System/index.html#system-description",
+    "title": "48  Attracting Torus System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>48</span>  <span class='chapter-title'>Attracting Torus System</span>"
+    ]
+  },
+  {
+    "objectID": "48_Attracting_Torus_System/index.html#real-time-simulation",
+    "href": "48_Attracting_Torus_System/index.html#real-time-simulation",
+    "title": "48  Attracting Torus System",
+    "section": "48.2 Real-time simulation",
+    "text": "48.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>48</span>  <span class='chapter-title'>Attracting Torus System</span>"
+    ]
+  },
+  {
+    "objectID": "49_Buncha_System/index.html",
+    "href": "49_Buncha_System/index.html",
+    "title": "49  Buncha System",
+    "section": "",
+    "text": "49.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& ay\\\\\n\\dot{y} &=& -x-zy\\\\\n\\dot{z} &=& |y|-1\n\\end{eqnarray}\n\\]\nwith \\(a=0.3\\) and initial condition \\((-1,5,0)\\).\nsystem is presented below. The trajectory, spanning 103 seconds, is colored time as indicated below. As the simulation progresses, the 3D view of trajectory according to the calculated local Lyapunov exponents at each point in time.",
+    "crumbs": [
+      "<span class='chapter-number'>49</span>  <span class='chapter-title'>Buncha System</span>"
+    ]
+  },
+  {
+    "objectID": "49_Buncha_System/index.html#system-description",
+    "href": "49_Buncha_System/index.html#system-description",
+    "title": "49  Buncha System",
+    "section": "",
+    "text": "A left-to-right 360o view of the chaotic system trajectory  The colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>49</span>  <span class='chapter-title'>Buncha System</span>"
+    ]
+  },
+  {
+    "objectID": "49_Buncha_System/index.html#real-time-simulation",
+    "href": "49_Buncha_System/index.html#real-time-simulation",
+    "title": "49  Buncha System",
+    "section": "49.2 Real-time simulation",
+    "text": "49.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end evolution can be explored by click-drag & scroll options in the mouse/touchpad. time as indicated below. As the simulation progresses, the 3D view of trajectory The visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>49</span>  <span class='chapter-title'>Buncha System</span>"
+    ]
+  },
+  {
+    "objectID": "50_Signum_Thermostat_System/index.html",
+    "href": "50_Signum_Thermostat_System/index.html",
+    "title": "50  Signum Thermostat System",
+    "section": "",
+    "text": "50.1 System description\nThe governing equations of this chaotic system are\n\\[\n\\begin{eqnarray}\n\\dot{x} &=& y\\\\\n\\dot{y} &=& -x+a sign(z)y\\\\\n\\dot{z} &=& y^2-1\n\\end{eqnarray}\n\\]\nwith \\(a=-2\\) and initial condition \\((1,-2,0)\\).\nAn animation of the pre-computed solution trajectory for the given chaotic system is presented below. The trajectory, spanning 103 seconds, is colored according to the calculated local Lyapunov exponents at each point in time.\nA left-to-right 360o view of the chaotic system trajectory\nThe colormap selected for the aforementioned animation employs a blue-green-red gradient. The blue to green range corresponds to negative Lyapunov exponents, signifying regions where the system’s predictability decreases. Conversely, the green to red range corresponds to positive Lyapunov exponents, indicative of regions where the system exhibits an increase in unpredictability.",
+    "crumbs": [
+      "<span class='chapter-number'>50</span>  <span class='chapter-title'>Signum Thermostat System</span>"
+    ]
+  },
+  {
+    "objectID": "50_Signum_Thermostat_System/index.html#real-time-simulation",
+    "href": "50_Signum_Thermostat_System/index.html#real-time-simulation",
+    "title": "50  Signum Thermostat System",
+    "section": "50.2 Real-time simulation",
+    "text": "50.2 Real-time simulation\nThe real-time simulation can be executed up to the designated end time as indicated below. As the simulation progresses, the 3D view of trajectory evolution can be explored by click-drag & scroll options in the mouse/touchpad.\nThe visualization was made using P5.js.",
+    "crumbs": [
+      "<span class='chapter-number'>50</span>  <span class='chapter-title'>Signum Thermostat System</span>"
+    ]
+  }
+]

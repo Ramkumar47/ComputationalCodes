@@ -1,0 +1,40 @@
+# Summary {.unnumbered}
+
+This online book contains the visualizations of 3D chaotic systems described
+in the book *Elegant Automation: Robotic Analysis of Chaotic Systems* by
+@sprott2023elegant .
+
+These visualizations were made using the following tools
+
+- *C++* programming language - for pre-computed visualizations
+
+- *P5.js* creative coding language - for real-time simulations
+
+- *Processing* creative language - for 3D visualizations of pre-computed solutions.
+
+
+All the computer programs for this project were made open-source and
+available in the github repository [here](https://github.com/Ramkumar47/ComputationalCodes/tree/main/29_VisualizingChaoticSystems){target="blank"}.
+
+
+This project would not have been possible without the major tools: P5.js and
+Processing. Please support their community for their sustainability and
+development. Their official websites are given below.
+
+- [P5.js](https://p5js.org/){target="blank"}
+- [Processing](https://processing.org/){target="blank"}
+
+There is a youtube channel that would be helpful and fun for the programming
+enthusiasts who wanna do creative programming. The channel name is
+*The coding train* by Daniel Shiffman. The link to his channel is
+[here](https://www.youtube.com/thecodingtrain){target="blank"}. Daniel has also
+made a book on the P5.js based creative coding. It is named *The Nature of Code*
+and its online version can be found [here](https://natureofcode.com/){target="blank"}.
+
+Last  but not least, this entire site is made with another open-source tool
+called [Quarto](https://quarto.org/){target="blank"}, which is easy-to-use
+document creator based on markdown language. With its ever-growing community,
+Quarto may replace LaTeX for documentations soon.
+
+Our little support to these communities will create more enthusiastic works
+in the literature.

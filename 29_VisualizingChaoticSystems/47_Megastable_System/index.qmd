@@ -2,7 +2,7 @@
 title: "Megastable System"
 ---
 
-## Simulation
+## System description
 
 The governing equations of this chaotic system are
 
@@ -16,6 +16,11 @@ $$
 
 with $a=-0.45,b=0.5$ and initial condition $(5,3,0)$.
 
-```{=html}
-<iframe width="800" height="800" src="file.html" title="Quarto Documentation"></iframe>
-```
+::: {.callout-note}
+
+The simulation results for this system differ significantly from the
+trajectories reported in the book by @sprott2023elegant for reasons that remain
+unclear. Consequently, this system has not been visualized.
+
+:::
+

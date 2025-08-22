@@ -1,0 +1,73 @@
+project:
+  type: book
+
+book:
+  title: "Visualizing 3D chaotic systems"
+  author: "Ramkumar"
+  date: "8/23/2025"
+  chapters:
+    - index.qmd
+    - 01_JCS-08-13-2022_System/index.qmd
+    - 02_Lorenz_System/index.qmd
+    - 03_Rossler_System/index.qmd
+    - 04_Nose-Hoover_System/index.qmd
+    - 05_Diffusionless_Lorenz_System/index.qmd
+    - 06_Sprott_C_System/index.qmd
+    - 07_Sprott_D_System/index.qmd
+    - 08_Sprott_E_System/index.qmd
+    - 09_Sprott_F_System/index.qmd
+    - 10_Sprott_G_System/index.qmd
+    - 11_Sprott_H_System/index.qmd
+    - 12_Sprott_I_System/index.qmd
+    - 13_Sprott_J_System/index.qmd
+    - 14_Sprott_K_System/index.qmd
+    - 15_Sprott_L_System/index.qmd
+    - 16_Sprott_M_System/index.qmd
+    - 17_Sprott_N_System/index.qmd
+    - 18_Sprott_O_System/index.qmd
+    - 19_Sprott_P_System/index.qmd
+    - 20_Sprott_Q_System/index.qmd
+    - 21_Sprott_R_System/index.qmd
+    - 22_Sprott_S_System/index.qmd
+    - 23_Rossler_Prototype-4_System/index.qmd
+    - 24_Simplest_Chaotic_System/index.qmd
+    - 25_Malasoma_System/index.qmd
+    - 26_Moore-Spiegel_System/index.qmd
+    - 27_Linz-Sprott_System/index.qmd
+    - 28_Elwakil-Kennedy_System/index.qmd
+    - 29_Chua_System/index.qmd
+    - 30_Chen_System/index.qmd
+    - 31_Halvorsen_System/index.qmd
+    - 32_Thomas_System/index.qmd
+    - 33_Rabinovich-Fabrikant_System/index.qmd
+    - 34_Leipnik-Newton_System/index.qmd
+    - 35_Arneodo-Coullet-Tresser_System/index.qmd
+    - 36_Lorenz-84_System/index.qmd
+    - 37_Wei_System/index.qmd
+    - 38_Wang-Chen_System/index.qmd
+    - 39_Reflection_Symmetric_System/index.qmd
+    - 40_Butterfly_System/index.qmd
+    - 41_Line_Equilibrium_System/index.qmd
+    - 42_Mostly_Quadratic_System/index.qmd
+    - 43_Dissipative-Conservative_System/index.qmd
+    - 44_Time-Reversible_Reflection-Invariant_System/index.qmd
+    - 45_Plane_Equilibrium_System/index.qmd
+    - 46_Forced_Ueda_System/index.qmd
+    - 47_Megastable_System/index.qmd
+    - 48_Attracting_Torus_System/index.qmd
+    - 49_Buncha_System/index.qmd
+    - 50_Signum_Thermostat_System/index.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: [cosmo,_extensions/catppuccin_latte.scss]
+
+  pdf:
+    documentclass: scrreprt
+
+
+
