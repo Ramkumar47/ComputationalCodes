@@ -1,0 +1,17 @@
+# Back-propagation equations
+
+$$
+\delta_j^{(L)} = \frac{\partial L_m}{\partial a_j^{(L)}} . \frac{\partial a_j^{(L)}}{\partial z_j^{(L)}}, \ \ \ j = 1,2,\dots,N^{(L)}
+$$
+
+
+for $l$ = L to 1
+$$
+\begin{aligned}
+\frac{\partial L_m}{\partial w_{ji}^{(l)} &= \delta_j^{(l)} a_i^{(l-1)}, \ \ \ j=1,\dots,N^{(l)}, i = 1,\dots,N^{(l-1)} \\
+\frac{\partial L_m}{\partial b_j^{(l)}} &= \delta_j^{(l)} \\
+\delta_i^{(l-1)} = \sum_{j=1}^{N^{(l)}} \left(\delta_j^{(l)} w_{ji}^{(l)}\right) h'\left(z_i^{(l-1)}\right)
+\end{aligned}
+$$
+
+end
