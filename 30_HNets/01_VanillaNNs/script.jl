@@ -13,10 +13,10 @@ include("declarationsAndDefinitions.jl")
 #=============================================================================#
 
 # defining dense layers
-l1     = Layer(1,2,tanh,"l1")
-l2     = Layer(2,3,tanh,"l2")
-l3     = Layer(3,2,tanh,"l3")
-l4     = Layer(2,1,linear,"l4")
+l1     = Layer(1,2,tanh,tanhDerivative,"l1")
+l2     = Layer(2,3,tanh,tanhDerivative,"l2")
+l3     = Layer(3,2,tanh,tanhDerivative,"l3")
+l4     = Layer(2,1,linear,linearDerivative,"l4")
 layers = [l1,l2,l3,l4]
 
 # generating random data
